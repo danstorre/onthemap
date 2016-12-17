@@ -26,6 +26,7 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+OntheMap_DanielTorresTests/Credentials.swift
 
 ## Playgrounds
 timeline.xctimeline
