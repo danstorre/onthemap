@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
                     self.activity.stopAnimating()
                     self.goToNextViewController()
                 }else {
+                    
                     self.displayAlert(errorString!)
                 }
             }
@@ -99,7 +100,12 @@ private extension LoginViewController {
     func displayAlert(_ errorString: String) {
         
         let alertViewController = UIAlertController(title: "Login", message: errorString, preferredStyle: .alert)
-        alertViewController.show(self, sender: nil)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertViewController.addAction(okButton)
+        self.present(alertViewController, animated: true, completion: {
+                self.activity.stopAnimating()
+            }
+        )
         
     }
     

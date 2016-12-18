@@ -18,7 +18,8 @@ class AuthenticationControllerTests: XCTestCase {
         
         let api = UdacityApiController()
         let authenticationController = AuthenticationController()
-        let expectation2 = expectation(description: "Swift Expectations")
+        let expectation2 = expectation(description: "Success Login Expectations")
+        let expectationWrongCredentials = expectation(description: "Failure Login credentials")
         
         
         authenticationController.authenticateWith(api, userName: Credentials.username, password: Credentials.password, completionHandlerForLogin: { (success, errorString) in
@@ -31,7 +32,16 @@ class AuthenticationControllerTests: XCTestCase {
             }
         })
         
-        waitForExpectations(timeout: 5.0, handler:nil)
+        authenticationController.authenticateWith(api, userName: "", password: "", completionHandlerForLogin: { (success, errorString) in
+            
+            if !success {
+                XCTAssert(true)
+                expectationWrongCredentials.fulfill()
+                print(errorString!)
+            }
+        })
+        
+        waitForExpectations(timeout: 10.0, handler:nil)
         
     }
     
