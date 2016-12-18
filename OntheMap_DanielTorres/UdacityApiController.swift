@@ -8,10 +8,10 @@
 
 import UIKit
 
-class UdacityApiController: AuthenticationProtocol {
+class UdacityApiController: ApiController, AuthenticationProtocol {
 
     
-    let networkController = NetworkController()
+    
     
     // MARK:- methods for authentication
     
@@ -35,7 +35,7 @@ class UdacityApiController: AuthenticationProtocol {
         }
         
         /* 4. Make the request */
-        let _ = networkController.taskForDeleteMethod(to: .udacity, request: request, completionHandlerForDelete: { (result,error) in
+        let _ = networkController.taskForDeleteMethod(from: self, request: request, completionHandlerForDelete: { (result,error) in
             
             func sendError(_ error: String) {
                 print(error)
@@ -72,7 +72,7 @@ class UdacityApiController: AuthenticationProtocol {
         request = createRequestForUdacityWith(request: request, method: ConfigurationNetwork.HttpMethods.post, and: jsonBody!)
         
         /* 4. Make the request */
-        let _ = networkController.taskForPOSTMethod(to: .udacity, request: request, completionHandlerForPOST: { (result,error) in
+        let _ = networkController.taskForPOSTMethod(api: self, request: request, completionHandlerForPOST: { (result,error) in
             
             func sendError(_ error: String) {
                 print(error)
@@ -93,11 +93,13 @@ class UdacityApiController: AuthenticationProtocol {
             
         })
     }
-    
-    // MARK:- Helper methods
-    
+}
+
+
+// MARK:- Helper methods
+private extension UdacityApiController {
     // Create Request for udacity 
-    private func createRequestForUdacityWith(request : NSMutableURLRequest, method: ConfigurationNetwork.HttpMethods, and jsonBody : Data?) -> NSMutableURLRequest{
+    func createRequestForUdacityWith(request : NSMutableURLRequest, method: ConfigurationNetwork.HttpMethods, and jsonBody : Data?) -> NSMutableURLRequest{
         
         request.httpMethod = method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -114,7 +116,7 @@ class UdacityApiController: AuthenticationProtocol {
     
     // create a URL from parameters
     
-    private func udacityURLFromParameters(_ parameters: [String:AnyObject]?, withPathExtension: String? = nil) -> URL {
+    func udacityURLFromParameters(_ parameters: [String:AnyObject]?, withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
         components.scheme = Authentication.UdacityConstants.ApiScheme
@@ -133,6 +135,5 @@ class UdacityApiController: AuthenticationProtocol {
         
         return components.url!
     }
-    
     
 }

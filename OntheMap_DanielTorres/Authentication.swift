@@ -10,12 +10,6 @@ import UIKit
 
 class Authentication: NSObject {
     
-    // MARK:- API
-    enum API{
-        case udacity, parse, facebook
-    }
-    
-    
     // MARK: Constants
     struct UdacityConstants {
         

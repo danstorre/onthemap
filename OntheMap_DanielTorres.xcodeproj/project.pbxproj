@@ -17,6 +17,15 @@
 		FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */; };
 		FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */; };
 		FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */; };
+		FB3F5F9A1E07220A001FADE3 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F991E07220A001FADE3 /* LocationController.swift */; };
+		FB3F5F9C1E07236B001FADE3 /* LocationsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */; };
+		FB3F5F9E1E072444001FADE3 /* ParseApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */; };
+		FB3F5FA01E072533001FADE3 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9F1E072533001FADE3 /* StudentLocation.swift */; };
+		FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA11E0725A0001FADE3 /* User.swift */; };
+		FB3F5FA41E0725B3001FADE3 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA31E0725B3001FADE3 /* Pin.swift */; };
+		FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA61E0725FE001FADE3 /* Address.swift */; };
+		FB3F5FA91E072C7D001FADE3 /* ConstantsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA81E072C7D001FADE3 /* ConstantsLocation.swift */; };
+		FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */; };
 		FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */; };
 		FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CF1E024134006027A2 /* UIResponderExtension.swift */; };
 		FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D31E034BB0006027A2 /* NetworkController.swift */; };
@@ -63,6 +72,15 @@
 		FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = ../GCDBlackBox.swift; sourceTree = "<group>"; };
 		FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		FB3F5F991E07220A001FADE3 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsProtocol.swift; sourceTree = "<group>"; };
+		FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseApiController.swift; sourceTree = "<group>"; };
+		FB3F5F9F1E072533001FADE3 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		FB3F5FA11E0725A0001FADE3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB3F5FA31E0725B3001FADE3 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		FB3F5FA61E0725FE001FADE3 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		FB3F5FA81E072C7D001FADE3 /* ConstantsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsLocation.swift; sourceTree = "<group>"; };
+		FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTheMapTextFieldDelegate.swift; sourceTree = "<group>"; };
 		FB5381CF1E024134006027A2 /* UIResponderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		FB5381D31E034BB0006027A2 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -118,8 +136,12 @@
 				FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */,
 				FB5381D81E034EA3006027A2 /* AthenticationController.swift */,
 				FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */,
+				FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */,
+				FB3F5F991E07220A001FADE3 /* LocationController.swift */,
 				FB29297F1E058C230049FE43 /* UdacityApiController.swift */,
+				FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */,
 				FB5381D31E034BB0006027A2 /* NetworkController.swift */,
+				FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -177,6 +199,11 @@
 			children = (
 				FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */,
 				FB5381DA1E034EC6006027A2 /* Authentication.swift */,
+				FB3F5FA81E072C7D001FADE3 /* ConstantsLocation.swift */,
+				FB3F5F9F1E072533001FADE3 /* StudentLocation.swift */,
+				FB3F5FA31E0725B3001FADE3 /* Pin.swift */,
+				FB3F5FA11E0725A0001FADE3 /* User.swift */,
+				FB3F5FA61E0725FE001FADE3 /* Address.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -361,20 +388,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3F5FA41E0725B3001FADE3 /* Pin.swift in Sources */,
+				FB3F5F9A1E07220A001FADE3 /* LocationController.swift in Sources */,
 				FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */,
+				FB3F5FA01E072533001FADE3 /* StudentLocation.swift in Sources */,
 				FB2929861E05992F0049FE43 /* AuthenticationProtocol.swift in Sources */,
 				FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */,
+				FB3F5FA91E072C7D001FADE3 /* ConstantsLocation.swift in Sources */,
 				FB815AB41E01DDB500E4DC63 /* Color.swift in Sources */,
 				FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */,
 				FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */,
+				FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */,
+				FB3F5F9C1E07236B001FADE3 /* LocationsProtocol.swift in Sources */,
 				FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */,
 				FB815AB11E01D93900E4DC63 /* TextFieldLogin.swift in Sources */,
 				FB815AB61E01E09900E4DC63 /* LoginViewController.swift in Sources */,
 				FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */,
+				FB3F5F9E1E072444001FADE3 /* ParseApiController.swift in Sources */,
 				FBC9F31F1DFDAD9000831A94 /* AppDelegate.swift in Sources */,
 				FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */,
 				FB5381D91E034EA3006027A2 /* AthenticationController.swift in Sources */,
+				FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
+				FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */,
 				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
