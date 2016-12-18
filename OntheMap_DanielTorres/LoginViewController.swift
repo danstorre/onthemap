@@ -21,18 +21,6 @@ class LoginViewController: UIViewController {
         configureTextFields()
         addGestures()
         
-        let api = UdacityApiController()
-        let authentication = AuthenticationController()
-        
-        authentication.authenticateWith(api, userName: "", password: ""){ (success, errorString) in
-            
-            if success {
-                print("paso")
-            }else {
-                print(errorString!)
-            }
-            
-        }
         
     }
     
@@ -51,7 +39,18 @@ class LoginViewController: UIViewController {
     // MARK:- Buttons
     
     @IBAction func loginPressed(_ sender: AnyObject) {
+        let api = UdacityApiController()
+        let authentication = AuthenticationController()
         
+        authentication.authenticateWith(api, userName: "", password: ""){ (success, errorString) in
+            
+            if success {
+                print("paso")
+            }else {
+                print(errorString!)
+            }
+            
+        }
     }
     
     // MARK: Login

@@ -30,8 +30,24 @@ class AuthenticationController {
         }
 
         api.getSessionID(userName, password: password, completionHandlerForLogin: completionForSessionID)
-    
     }
+    
+    func logOutWith(_ api: AuthenticationProtocol, completionHandlerForLogOut: @escaping (_ success: Bool, _ deletedSessionID: String?, _ errorString: String?) -> Void){
+        
+        let completionForLogout = { (success: Bool, deletedSessionID: String?, error: NSError?) -> Void in
+            
+            if success {
+                completionHandlerForLogOut(true, deletedSessionID, nil)
+            }
+            else {
+                print(error!)
+                completionHandlerForLogOut(false, deletedSessionID, "Logout failed please try again")
+            }
+        }
+        
+        api.deleteSession(completionHandlerForLogout: completionForLogout)
+    }
+
     
     
     

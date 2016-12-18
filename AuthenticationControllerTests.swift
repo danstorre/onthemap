@@ -35,10 +35,32 @@ class AuthenticationControllerTests: XCTestCase {
         
     }
     
+    func test_LogoutWithUdacity() {
+        
+        let api = UdacityApiController()
+        let authenticationController = AuthenticationController()
+        let expectations = expectation(description: "Logout with udacity Expectations")
+        
+        
+        authenticationController.logOutWith(api, completionHandlerForLogOut: { (success, idSession, errorString) in
+            
+            if success {
+                print("id session deleted \(idSession!)")
+                XCTAssert(true)
+                expectations.fulfill()
+            }else {
+                print(errorString!)
+            }
+        })
+        
+        waitForExpectations(timeout: 5.0, handler:nil)
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            self.test_AuthenticateWithUdacity_SessionID()
         }
     }
     
