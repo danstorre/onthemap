@@ -13,6 +13,8 @@
 		FB2929881E05B1070049FE43 /* UdacityAPIControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929871E05B1070049FE43 /* UdacityAPIControllerTests.swift */; };
 		FB29298A1E05B2F90049FE43 /* NetworkControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929891E05B2F90049FE43 /* NetworkControllerTests.swift */; };
 		FB29298C1E05C8D30049FE43 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29298B1E05C8D30049FE43 /* Credentials.swift */; };
+		FB3496DA1E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3496D91E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard */; };
+		FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */; };
 		FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */; };
 		FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CF1E024134006027A2 /* UIResponderExtension.swift */; };
 		FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D31E034BB0006027A2 /* NetworkController.swift */; };
@@ -55,6 +57,8 @@
 		FB2929871E05B1070049FE43 /* UdacityAPIControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityAPIControllerTests.swift; sourceTree = "<group>"; };
 		FB2929891E05B2F90049FE43 /* NetworkControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkControllerTests.swift; sourceTree = "<group>"; };
 		FB29298B1E05C8D30049FE43 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		FB3496D91E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainNavigationOntheMap.storyboard; sourceTree = "<group>"; };
+		FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = ../GCDBlackBox.swift; sourceTree = "<group>"; };
 		FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTheMapTextFieldDelegate.swift; sourceTree = "<group>"; };
 		FB5381CF1E024134006027A2 /* UIResponderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		FB5381D31E034BB0006027A2 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		FB815AAF1E01B8EC00E4DC63 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */,
 				FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */,
 				FB5381D81E034EA3006027A2 /* AthenticationController.swift */,
 				FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */,
@@ -143,6 +148,7 @@
 				FBC9F34C1DFDAD9C00831A94 /* Model */,
 				FBC9F31E1DFDAD9000831A94 /* AppDelegate.swift */,
 				FBC9F3221DFDAD9000831A94 /* Main.storyboard */,
+				FB3496D91E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard */,
 				FBC9F3271DFDAD9000831A94 /* LaunchScreen.storyboard */,
 				FBC9F34F1DFDAE6C00831A94 /* Resources */,
 				FBC9F3561DFDAFB600831A94 /* Supporting files */,
@@ -318,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3496DA1E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard in Resources */,
 				FBC9F3531DFDAE9A00831A94 /* Roboto-Medium.otf in Resources */,
 				FBC9F3291DFDAD9000831A94 /* LaunchScreen.storyboard in Resources */,
 				FBC9F3551DFDAE9A00831A94 /* Roboto-Thin.otf in Resources */,
@@ -360,6 +367,7 @@
 				FBC9F31F1DFDAD9000831A94 /* AppDelegate.swift in Sources */,
 				FB5381D91E034EA3006027A2 /* AthenticationController.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
+				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

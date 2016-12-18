@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     // MARK: - properties
     @IBOutlet weak var emailTextField: TextFieldLogin!
     @IBOutlet weak var passTextField: TextFieldLogin!
+    @IBOutlet weak var activity: UIActivityIndicatorView!
     let customTFDelegate : OnTheMapTextFieldDelegate = OnTheMapTextFieldDelegate()
     
     // MARK: - View controller life cycle
@@ -41,28 +42,30 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: AnyObject) {
         let api = UdacityApiController()
         let authentication = AuthenticationController()
+        self.activity.startAnimating()
         
-        authentication.authenticateWith(api, userName: "", password: ""){ (success, errorString) in
+        authentication.authenticateWith(api, userName: emailTextField.text!, password: passTextField.text!){ (success, errorString) in
             
-            if success {
-                print("paso")
-            }else {
-                print(errorString!)
+            performUIUpdatesOnMain{
+                if success {
+                    self.activity.stopAnimating()
+                    self.goToNextViewController()
+                }else {
+                    self.displayAlert(errorString!)
+                }
             }
-            
         }
     }
     
     // MARK: Login
     
     private func goToNextViewController() {
-        let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
-        present(controller, animated: true, completion: nil)
+        performSegue(withIdentifier: "login", sender: nil)
     }
 
 }
 
-// MARK: - LoginViewController (Configure UI)
+// MARK: - LoginViewController (Configure UI, HelperMethods)
 
 private extension LoginViewController {
 
@@ -91,6 +94,13 @@ private extension LoginViewController {
         }
         
         let _ = textFieldFirsResponder.resignFirstResponder()
+    }
+    
+    func displayAlert(_ errorString: String) {
+        
+        let alertViewController = UIAlertController(title: "Login", message: errorString, preferredStyle: .alert)
+        alertViewController.show(self, sender: nil)
+        
     }
     
 

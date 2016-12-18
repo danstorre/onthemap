@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Sp4-pv-26A">
-                                <rect key="frame" x="65" y="258.5" width="246" height="150"/>
+                                <rect key="frame" x="64.5" y="258.5" width="246" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vR3-S8-cyH" customClass="TextFieldLogin" customModule="OntheMap_DanielTorres" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="246" height="43.5"/>
@@ -53,6 +53,9 @@
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVh-AM-MKj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -67,13 +70,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login To Udacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH5-4L-gFN">
-                                <rect key="frame" x="123.5" y="222.5" width="128.5" height="20"/>
+                                <rect key="frame" x="124" y="222.5" width="128.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dk7-U8-0DS">
-                                <rect key="frame" x="65" y="416.5" width="246" height="44"/>
+                                <rect key="frame" x="64.5" y="416.5" width="246" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfb-fn-Ac6">
                                         <rect key="frame" x="0.0" y="12" width="178" height="20"/>
@@ -91,6 +94,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="c5u-EP-ew0">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.56862745098039214" blue="0.039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -98,21 +104,51 @@
                             <constraint firstItem="Fx9-pX-G6F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1RC-Hl-8US"/>
                             <constraint firstItem="UH5-4L-gFN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ArG-eA-9fJ"/>
                             <constraint firstItem="Sp4-pv-26A" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ds5-VF-7Uw"/>
+                            <constraint firstItem="c5u-EP-ew0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="N0g-Lp-IKu"/>
                             <constraint firstItem="Dk7-U8-0DS" firstAttribute="height" secondItem="4z1-n9-eZf" secondAttribute="height" id="UaN-5u-fQV"/>
                             <constraint firstItem="Sp4-pv-26A" firstAttribute="width" secondItem="Dk7-U8-0DS" secondAttribute="width" id="b5v-4C-1d4"/>
                             <constraint firstItem="Sp4-pv-26A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eZw-GC-wB9"/>
                             <constraint firstItem="UH5-4L-gFN" firstAttribute="top" secondItem="Fx9-pX-G6F" secondAttribute="bottom" constant="8" id="iRG-XZ-XH2"/>
+                            <constraint firstItem="c5u-EP-ew0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ldh-Ge-ttB"/>
                             <constraint firstItem="Sp4-pv-26A" firstAttribute="top" secondItem="UH5-4L-gFN" secondAttribute="bottom" constant="16" id="qhe-m4-ERC"/>
                             <constraint firstItem="Dk7-U8-0DS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tzy-G2-5jJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="c5u-EP-ew0" id="nvf-hA-bEz"/>
                         <outlet property="emailTextField" destination="vR3-S8-cyH" id="8Ho-yM-dha"/>
                         <outlet property="passTextField" destination="yms-Mk-LvD" id="CuP-ws-u89"/>
+                        <segue destination="VPf-xV-Zw4" kind="presentation" identifier="login" id="3tT-nX-OgX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ved-jj-SqX">
+            <objects>
+                <navigationController id="VPf-xV-Zw4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="673-B8-2n4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CNh-Ix-HSv" kind="relationship" relationship="rootViewController" id="Vuo-a1-W3h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWf-fX-Eo4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="35"/>
+        </scene>
+        <!--MainNavigationOntheMap-->
+        <scene sceneID="GTv-kP-YQE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainNavigationOntheMap" id="CNh-Ix-HSv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lXd-QJ-lao"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4EB-F2-QDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1711" y="34"/>
         </scene>
     </scenes>
     <resources>
