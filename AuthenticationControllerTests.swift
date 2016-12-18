@@ -16,18 +16,19 @@ class AuthenticationControllerTests: XCTestCase {
     
     func test_AuthenticateWithUdacity_SessionID() {
         
-        var passed = false
         let api = UdacityApiController()
         let authenticationController = AuthenticationController()
         let expectation2 = expectation(description: "Swift Expectations")
         
         
-        authenticationController.authenticateWith(api, userName: "", password: "", completionHandlerForLogin: { (success, errorString) in
+        authenticationController.authenticateWith(api, userName: Credentials.username, password: Credentials.password, completionHandlerForLogin: { (success, errorString) in
             
-            passed = success
-            
-            XCTAssert(!passed, "there is no sessionID")
-            expectation2.fulfill()
+            if success {
+                XCTAssert(true)
+                expectation2.fulfill()
+            }else {
+                print(errorString!)
+            }
         })
         
         waitForExpectations(timeout: 5.0, handler:nil)

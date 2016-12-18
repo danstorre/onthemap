@@ -51,7 +51,7 @@ class NetworkController: NSObject {
             }
             
             if api == .udacity {
-                let range = Range(uncheckedBounds: (5, data.count - 5))
+                let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
             
@@ -67,12 +67,12 @@ class NetworkController: NSObject {
 }
 
 
-extension NetworkController {
+private extension NetworkController {
     
     // MARK:- Helpers 
     
     // given raw JSON, return a usable Foundation object
-    func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+     func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         var parsedResult: AnyObject! = nil
         do {

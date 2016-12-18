@@ -9,27 +9,31 @@
 import XCTest
 @testable import OntheMap_DanielTorres
 
+
 class UdacityAPIControllerTests: XCTestCase {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func test_GetSessionID_SessionID() {
         
-        var passed = false
-        let api = UdacityApiController()
+        let udacityApi = UdacityApiController()
         let expectation2 = expectation(description: "Swift Expectations")
         
-        api.getSessionID("", password: "") { (success, sessionID, errorString) in
+        udacityApi.getSessionID("\(Credentials.username)", password: "\(Credentials.password)") { (success, sessionID, error) in
             
-            passed = success
-            XCTAssert(!passed, "there is no sessionID")
-            
-            expectation2.fulfill()
+            if success {
+                print("the session ID is \(sessionID!)")
+                XCTAssert(true)
+                expectation2.fulfill()
+            } else {
+                XCTFail("no session ID returned")
+            }
         }
         
         waitForExpectations(timeout: 10.0, handler:nil)
         
     }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

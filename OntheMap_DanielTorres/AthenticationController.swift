@@ -16,14 +16,16 @@ class AuthenticationController {
     // MARK:- Methods for authentication
     func authenticateWith(_ api: AuthenticationProtocol, userName: String, password: String,  completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void){
         
-        let completionForSessionID = { (success: Bool, sessionID: String?, errorString: String?) -> Void in
+        let completionForSessionID = { (success: Bool, sessionID: String?, error: NSError?) -> Void in
+            
             if success {
                 //If success set sessionId to the shared networkController object
                 self.appDelegate.networkState.sessionID = sessionID
                 completionHandlerForLogin(true, nil)
             }
             else {
-                completionHandlerForLogin(false, errorString)
+                print(error!)
+                completionHandlerForLogin(false, "Athentication failed please try again")
             }
         }
 

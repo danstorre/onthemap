@@ -15,7 +15,7 @@ class UdacityApiController: AuthenticationProtocol {
     
     // MARK:- methods for authentication
     
-    func getSessionID(_ userName: String, password: String, completionHandlerForLogin: @escaping (_ success: Bool, _ sessionID: String?, _ errorString: String?) -> Void)
+    func getSessionID(_ userName: String, password: String, completionHandlerForLogin: @escaping (_ success: Bool, _ sessionID: String?, _ error: NSError?) -> Void)
     {
         
         /* 1. Set the parameters */
@@ -31,17 +31,21 @@ class UdacityApiController: AuthenticationProtocol {
         /* 4. Make the request */
         let _ = networkController.taskForPOSTMethod(to: .udacity, request: request, completionHandlerForPOST: { (result,error) in
             
+            func sendError(_ error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey : error]
+                completionHandlerForLogin(false, nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
+            }
+            
             guard error == nil else {
-                print(error!)
-                return completionHandlerForLogin(false, nil, "Login Failed (Request Session).")
+                return sendError("taskForPOSTMethod returns an error")
             }
             
             if let session = result?[Authentication.JSONBodyResponseUdacityKeys.session] as? [String:AnyObject],
                 let id = session[Authentication.JSONBodyResponseUdacityKeys.id] as? String{
                 completionHandlerForLogin(true, id, nil)
             } else {
-                print("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
-                completionHandlerForLogin(false, nil, "Login Failed (Request Session).")
+                sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
             }
             
         })
@@ -61,6 +65,7 @@ class UdacityApiController: AuthenticationProtocol {
     }
     
     // create a URL from parameters
+    
     private func udacityURLFromParameters(_ parameters: [String:AnyObject]?, withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()

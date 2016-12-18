@@ -26,7 +26,6 @@
 		FBC9F3241DFDAD9000831A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3221DFDAD9000831A94 /* Main.storyboard */; };
 		FBC9F3261DFDAD9000831A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3251DFDAD9000831A94 /* Assets.xcassets */; };
 		FBC9F3291DFDAD9000831A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3271DFDAD9000831A94 /* LaunchScreen.storyboard */; };
-		FBC9F3341DFDAD9000831A94 /* OntheMap_DanielTorresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9F3331DFDAD9000831A94 /* OntheMap_DanielTorresTests.swift */; };
 		FBC9F3531DFDAE9A00831A94 /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3501DFDAE9A00831A94 /* Roboto-Medium.otf */; };
 		FBC9F3541DFDAE9A00831A94 /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3511DFDAE9A00831A94 /* Roboto-Regular.otf */; };
 		FBC9F3551DFDAE9A00831A94 /* Roboto-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3521DFDAE9A00831A94 /* Roboto-Thin.otf */; };
@@ -72,7 +71,6 @@
 		FBC9F3281DFDAD9000831A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBC9F32A1DFDAD9000831A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBC9F32F1DFDAD9000831A94 /* OntheMap_DanielTorresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OntheMap_DanielTorresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBC9F3331DFDAD9000831A94 /* OntheMap_DanielTorresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OntheMap_DanielTorresTests.swift; sourceTree = "<group>"; };
 		FBC9F3351DFDAD9000831A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBC9F33A1DFDAD9000831A94 /* OntheMap_DanielTorresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OntheMap_DanielTorresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC9F3501DFDAE9A00831A94 /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				FB2929831E0590F50049FE43 /* AuthenticationControllerTests.swift */,
 				FB2929871E05B1070049FE43 /* UdacityAPIControllerTests.swift */,
 				FB2929891E05B2F90049FE43 /* NetworkControllerTests.swift */,
-				FBC9F3331DFDAD9000831A94 /* OntheMap_DanielTorresTests.swift */,
 				FBC9F3351DFDAD9000831A94 /* Info.plist */,
 				FB29298B1E05C8D30049FE43 /* Credentials.swift */,
 			);
@@ -371,7 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB29298A1E05B2F90049FE43 /* NetworkControllerTests.swift in Sources */,
-				FBC9F3341DFDAD9000831A94 /* OntheMap_DanielTorresTests.swift in Sources */,
 				FB29298C1E05C8D30049FE43 /* Credentials.swift in Sources */,
 				FB2929841E0590F50049FE43 /* AuthenticationControllerTests.swift in Sources */,
 				FB2929881E05B1070049FE43 /* UdacityAPIControllerTests.swift in Sources */,
