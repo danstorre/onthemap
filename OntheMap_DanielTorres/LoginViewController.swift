@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: TextFieldLogin!
     @IBOutlet weak var passTextField: TextFieldLogin!
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var loginButton: UIButton!
     let customTFDelegate : OnTheMapTextFieldDelegate = OnTheMapTextFieldDelegate()
     
     // MARK: - View controller life cycle
@@ -22,15 +23,12 @@ class LoginViewController: UIViewController {
         configureTextFields()
         addGestures()
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         passTextField.text = ""
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,18 +40,21 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: AnyObject) {
         let api = UdacityApiController()
         let authentication = AuthenticationController()
-        self.activity.startAnimating()
+        activity.startAnimating()
+        loginButton.isUserInteractionEnabled = false
         
         authentication.authenticateWith(api, userName: emailTextField.text!, password: passTextField.text!){ (success, errorString) in
             
             performUIUpdatesOnMain{
-                if success {
-                    self.activity.stopAnimating()
-                    self.goToNextViewController()
-                }else {
-                    
-                    self.displayAlert(errorString!)
+                
+                guard success else {
+                    return self.displayAlert(errorString!) {
+                        self.activity.stopAnimating()
+                        self.loginButton.isUserInteractionEnabled = true
+                    }
                 }
+                
+                self.goToNextViewController()
             }
         }
     }
@@ -61,7 +62,11 @@ class LoginViewController: UIViewController {
     // MARK: Login
     
     private func goToNextViewController() {
-        performSegue(withIdentifier: "login", sender: nil)
+        self.loginButton.isUserInteractionEnabled = true
+        self.activity.stopAnimating()
+        let storyboard =  UIStoryboard(name: "MainNavigationOntheMap", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! UINavigationController
+        navigationController?.show(vc, sender: nil)
     }
 
 }
@@ -97,17 +102,7 @@ private extension LoginViewController {
         let _ = textFieldFirsResponder.resignFirstResponder()
     }
     
-    func displayAlert(_ errorString: String) {
-        
-        let alertViewController = UIAlertController(title: "Login", message: errorString, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alertViewController.addAction(okButton)
-        self.present(alertViewController, animated: true, completion: {
-                self.activity.stopAnimating()
-            }
-        )
-        
-    }
+    
     
 
 }

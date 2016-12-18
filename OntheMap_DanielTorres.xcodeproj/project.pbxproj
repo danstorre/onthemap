@@ -15,6 +15,8 @@
 		FB29298C1E05C8D30049FE43 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29298B1E05C8D30049FE43 /* Credentials.swift */; };
 		FB3496DA1E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3496D91E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard */; };
 		FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */; };
+		FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */; };
+		FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */; };
 		FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */; };
 		FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CF1E024134006027A2 /* UIResponderExtension.swift */; };
 		FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D31E034BB0006027A2 /* NetworkController.swift */; };
@@ -59,6 +61,8 @@
 		FB29298B1E05C8D30049FE43 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		FB3496D91E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainNavigationOntheMap.storyboard; sourceTree = "<group>"; };
 		FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = ../GCDBlackBox.swift; sourceTree = "<group>"; };
+		FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTheMapTextFieldDelegate.swift; sourceTree = "<group>"; };
 		FB5381CF1E024134006027A2 /* UIResponderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		FB5381D31E034BB0006027A2 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				FB815AB51E01E09900E4DC63 /* LoginViewController.swift */,
+				FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */,
+				FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -359,12 +365,14 @@
 				FB2929861E05992F0049FE43 /* AuthenticationProtocol.swift in Sources */,
 				FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */,
 				FB815AB41E01DDB500E4DC63 /* Color.swift in Sources */,
+				FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */,
 				FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */,
 				FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */,
 				FB815AB11E01D93900E4DC63 /* TextFieldLogin.swift in Sources */,
 				FB815AB61E01E09900E4DC63 /* LoginViewController.swift in Sources */,
 				FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */,
 				FBC9F31F1DFDAD9000831A94 /* AppDelegate.swift in Sources */,
+				FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */,
 				FB5381D91E034EA3006027A2 /* AthenticationController.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
 				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,

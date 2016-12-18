@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eIP-Hq-8TO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -114,31 +114,20 @@
                             <constraint firstItem="Dk7-U8-0DS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tzy-G2-5jJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Dvw-pR-qCF"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activity" destination="c5u-EP-ew0" id="nvf-hA-bEz"/>
                         <outlet property="emailTextField" destination="vR3-S8-cyH" id="8Ho-yM-dha"/>
+                        <outlet property="loginButton" destination="4z1-n9-eZf" id="nj7-Y8-UnB"/>
                         <outlet property="passTextField" destination="yms-Mk-LvD" id="CuP-ws-u89"/>
-                        <segue destination="VPf-xV-Zw4" kind="presentation" identifier="login" id="3tT-nX-OgX"/>
+                        <segue destination="CNh-Ix-HSv" kind="presentation" identifier="login" id="a7p-2x-XPb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ved-jj-SqX">
-            <objects>
-                <navigationController id="VPf-xV-Zw4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="673-B8-2n4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="CNh-Ix-HSv" kind="relationship" relationship="rootViewController" id="Vuo-a1-W3h"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fWf-fX-Eo4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="929" y="35"/>
+            <point key="canvasLocation" x="972" y="67.916041979010501"/>
         </scene>
         <!--MainNavigationOntheMap-->
         <scene sceneID="GTv-kP-YQE">
@@ -148,7 +137,27 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EB-F2-QDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="34"/>
+            <point key="canvasLocation" x="1919.2" y="83.658170914542737"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zu4-ma-GBJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eIP-Hq-8TO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gSU-dd-t1j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cqp-fi-ILx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b7b-Gd-ckc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174" y="68"/>
         </scene>
     </scenes>
     <resources>
