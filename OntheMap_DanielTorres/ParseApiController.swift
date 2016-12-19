@@ -11,7 +11,7 @@ import UIKit
 class ParseApiController: ApiController, LocationsProtocol {
 
     
-    func getLastLocations(numberOfLocations: Int, completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ error: NSError?) -> Void){
+    func getLastLocations(numberOfLocations: String, completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ error: NSError?) -> Void){
         
         
         
@@ -21,9 +21,9 @@ class ParseApiController: ApiController, LocationsProtocol {
         ]
         
         /* 2. Build the URL & Configure the request*/
-        var request = NSMutableURLRequest(url: parseURLFromParameters(parameters, withPathExtension: Authentication.Methods.udacitySessionPath))
+        var request = NSMutableURLRequest(url: parseURLFromParameters(parameters, withPathExtension: ConstantsLocation.Methods.parseStudentsLocations))
         
-        request = createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.post, and: nil)
+        request = createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.get, and: nil)
         
         /* 4. Make the request */
         networkController.taskForGetMethod(api: self, request: request, completionHandlerForGET: { (result,error) in
@@ -38,12 +38,13 @@ class ParseApiController: ApiController, LocationsProtocol {
                 return sendError("taskForPOSTMethod returns an error")
             }
             
-            if let session = result?[Authentication.JSONBodyResponseUdacityKeys.session] as? [String:AnyObject],
-                let id = session[Authentication.JSONBodyResponseUdacityKeys.id] as? String{
-                completionHandlerForGettingLocations(true, id, nil)
-            } else {
-                sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
+            guard let dictionaryOfStudentLocations = result?[ConstantsLocation.JSONBodyResponseParseKeys.results] as? [[String:AnyObject]] else {
+                return sendError("Could not find \(ConstantsLocation.JSONBodyResponseParseKeys.results) in \(result)")
             }
+            
+            let arrayOfStudentLocation = StudentLocation.arrayOfStudentLocations(from: dictionaryOfStudentLocations)
+            
+            completionHandlerForGettingLocations(true, arrayOfStudentLocation, nil)
             
         })
 
@@ -57,9 +58,11 @@ private extension ParseApiController {
     // Create Request for udacity
     func createRequestForParseWith(request : NSMutableURLRequest, method: ConfigurationNetwork.HttpMethods, and jsonBody : Data?) -> NSMutableURLRequest{
         
+        
+        
         request.httpMethod = method.rawValue
-        request.addValue(ConstantsLocation.ParseConstants.applicationId, forHTTPHeaderField: "X-Parse-Application-Id")
-        request.addValue(ConstantsLocation.ParseConstants.applicationId, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr", forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue("QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY", forHTTPHeaderField: "X-Parse-REST-API-Key")
         
         guard let jsonBody = jsonBody else {
             return request

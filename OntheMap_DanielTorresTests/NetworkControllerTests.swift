@@ -14,6 +14,7 @@ class NetworkControllerTests: XCTestCase {
     func test_LoginWithUdacity_ResultFromParseData(){
     
         let networkController = NetworkController()
+        let udacityApi = UdacityApiController()
         
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
         request.httpMethod = "POST"
@@ -23,7 +24,7 @@ class NetworkControllerTests: XCTestCase {
         
         let expectation2 = expectation(description: "Swift Expectations")
         
-        let _ = networkController.taskForPOSTMethod(to: .udacity, request: request){ (result, errorString) in
+        let _ = networkController.taskForPOSTMethod(api: udacityApi, request: request){ (result, errorString) in
         
             guard errorString == nil else {
                 print(errorString!)
@@ -49,7 +50,7 @@ class NetworkControllerTests: XCTestCase {
             print("The data parsed \(dataParsed)")
         }
         
-        waitForExpectations(timeout: 10.0, handler:nil)
+        waitForExpectations(timeout: 20.0, handler:nil)
         
     }
         

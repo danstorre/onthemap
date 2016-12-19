@@ -24,6 +24,7 @@ class ConstantsLocation: NSObject {
     
     // MARK: Methods
     struct Methods {
+        
         static let parseStudentsLocations = "/parse/classes/StudentLocation"
     }
     
@@ -31,7 +32,7 @@ class ConstantsLocation: NSObject {
         // Locations
         static let limit = "limit"
         static let skip = "skip"
-        static let decending = "skip"
+        static let descending = "-"
     }
     
     // MARK: JSON Body Keys
@@ -43,6 +44,18 @@ class ConstantsLocation: NSObject {
     // MARK: JSON Body Response Keys
     struct JSONBodyResponseParseKeys {
         
+        //List Student Locations
+        static let results = "results"
+        
+        //Student Location
+        static let firstName = "firstName"
+        static let lastName = "lastName"
+        static let latitude = "latitude"
+        static let longitude = "longitude"
+        static let mapString = "mapString"
+        static let mediaURL = "mediaURL"
+        static let objectId = "objectId"
+        static let uniqueKey = "uniqueKey"
         
     }
 }

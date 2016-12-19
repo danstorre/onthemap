@@ -16,7 +16,7 @@ class LocationController: NSObject {
         let completionForGettingStudentLocations = { (success: Bool, _ locations: [StudentLocation]?, error: NSError?) -> Void in
             
             if success {
-                //If success set sessionId to the shared networkController object
+                //If success return list of studentlocations to the completion handler
                 completionHandlerForGettingLocations(true, locations, nil)
             }
             else {
@@ -25,7 +25,7 @@ class LocationController: NSObject {
             }
         }
         
-        api.getLastLocations(numberOfLocations: 100, completionHandlerForGettingLocations:
+        api.getLastLocations(numberOfLocations: String(numberOFlocationsAsked), completionHandlerForGettingLocations:
             completionForGettingStudentLocations)
     }
 

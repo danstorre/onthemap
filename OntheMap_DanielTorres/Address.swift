@@ -19,7 +19,7 @@ class Address: NSObject {
     }
 }
 
-struct Location{
+struct Location {
 
     var latitude : Double
     var longitude : Double

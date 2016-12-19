@@ -49,7 +49,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.self === UdacityApiController.self {
+            if api.isKind(of: UdacityApiController.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
@@ -95,7 +95,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.self === UdacityApiController.self {
+            if api.isKind(of: UdacityApiController.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
@@ -141,7 +141,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.self === UdacityApiController.self {
+            if api.isKind(of: UdacityApiController.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }

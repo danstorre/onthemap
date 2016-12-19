@@ -18,7 +18,7 @@ class AuthenticationControllerTests: XCTestCase {
         
         let api = UdacityApiController()
         let authenticationController = AuthenticationController()
-        let expectation2 = expectation(description: "Success Login Expectations")
+        let expectationSuccess = expectation(description: "Success Login Expectations")
         let expectationWrongCredentials = expectation(description: "Failure Login credentials")
         
         
@@ -26,7 +26,7 @@ class AuthenticationControllerTests: XCTestCase {
             
             if success {
                 XCTAssert(true)
-                expectation2.fulfill()
+                expectationSuccess.fulfill()
             }else {
                 print(errorString!)
             }
@@ -41,7 +41,7 @@ class AuthenticationControllerTests: XCTestCase {
             }
         })
         
-        waitForExpectations(timeout: 10.0, handler:nil)
+        waitForExpectations(timeout: 5.0, handler:nil)
         
     }
     

@@ -31,7 +31,6 @@ class UdacityAPIControllerTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 10.0, handler:nil)
-        
     }
     
     

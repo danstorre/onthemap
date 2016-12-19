@@ -10,6 +10,6 @@ import UIKit
 
 protocol LocationsProtocol {
     
-    func getLastLocations(numberOfLocations: Int,completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ error: NSError?) -> Void)
+    func getLastLocations(numberOfLocations: String,completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ error: NSError?) -> Void)
 
 }
