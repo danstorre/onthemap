@@ -137,7 +137,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4EB-F2-QDv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1919.2" y="83.658170914542737"/>
+            <point key="canvasLocation" x="1871" y="67"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zu4-ma-GBJ">
@@ -146,7 +146,7 @@
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gSU-dd-t1j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gSU-dd-t1j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

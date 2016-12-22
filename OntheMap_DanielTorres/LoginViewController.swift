@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passTextField: TextFieldLogin!
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
-    let customTFDelegate : OnTheMapTextFieldDelegate = OnTheMapTextFieldDelegate()
+    let customTFDelegate : TextFieldDelegateOnTheMap = TextFieldDelegateOnTheMap()
     
     // MARK: - View controller life cycle
     override func viewDidLoad() {
@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
         addGestures()
         
     }
+
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

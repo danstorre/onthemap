@@ -28,7 +28,7 @@
 		FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */; };
 		FB3F5FAD1E086299001FADE3 /* LocationsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAC1E086299001FADE3 /* LocationsControllerTests.swift */; };
 		FB3F5FAF1E086CE9001FADE3 /* ParseAPIControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAE1E086CE9001FADE3 /* ParseAPIControllerTests.swift */; };
-		FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */; };
+		FB5381CD1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CC1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift */; };
 		FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CF1E024134006027A2 /* UIResponderExtension.swift */; };
 		FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D31E034BB0006027A2 /* NetworkController.swift */; };
 		FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */; };
@@ -44,6 +44,11 @@
 		FBC9F3531DFDAE9A00831A94 /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3501DFDAE9A00831A94 /* Roboto-Medium.otf */; };
 		FBC9F3541DFDAE9A00831A94 /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3511DFDAE9A00831A94 /* Roboto-Regular.otf */; };
 		FBC9F3551DFDAE9A00831A94 /* Roboto-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3521DFDAE9A00831A94 /* Roboto-Thin.otf */; };
+		FBCE26821E097C5700A90877 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE26811E097C5700A90877 /* MapViewController.swift */; };
+		FBCE26841E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE26831E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift */; };
+		FBED128B1E0B753900EBCAD7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBED128A1E0B753900EBCAD7 /* MapKit.framework */; };
+		FBED128D1E0C0A6700EBCAD7 /* CLLocationManagerDelegateOnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED128C1E0C0A6700EBCAD7 /* CLLocationManagerDelegateOnTheMap.swift */; };
+		FBED128F1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED128E1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +90,7 @@
 		FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		FB3F5FAC1E086299001FADE3 /* LocationsControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsControllerTests.swift; sourceTree = "<group>"; };
 		FB3F5FAE1E086CE9001FADE3 /* ParseAPIControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAPIControllerTests.swift; sourceTree = "<group>"; };
-		FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTheMapTextFieldDelegate.swift; sourceTree = "<group>"; };
+		FB5381CC1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegateOnTheMap.swift; sourceTree = "<group>"; };
 		FB5381CF1E024134006027A2 /* UIResponderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		FB5381D31E034BB0006027A2 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationNetwork.swift; sourceTree = "<group>"; };
@@ -106,6 +111,11 @@
 		FBC9F3501DFDAE9A00831A94 /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
 		FBC9F3511DFDAE9A00831A94 /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
 		FBC9F3521DFDAE9A00831A94 /* Roboto-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.otf"; sourceTree = "<group>"; };
+		FBCE26811E097C5700A90877 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FBCE26831E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKitViewDelegateOntheMap.swift; sourceTree = "<group>"; };
+		FBED128A1E0B753900EBCAD7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FBED128C1E0C0A6700EBCAD7 /* CLLocationManagerDelegateOnTheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManagerDelegateOnTheMap.swift; sourceTree = "<group>"; };
+		FBED128E1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerOnTheMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBED128B1E0B753900EBCAD7 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */,
-				FB5381CC1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift */,
+				FB5381CC1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift */,
+				FBCE26831E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift */,
+				FBED128C1E0C0A6700EBCAD7 /* CLLocationManagerDelegateOnTheMap.swift */,
 				FB5381D81E034EA3006027A2 /* AthenticationController.swift */,
 				FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */,
 				FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */,
@@ -156,6 +169,7 @@
 				FBC9F31D1DFDAD9000831A94 /* OntheMap_DanielTorres */,
 				FBC9F3321DFDAD9000831A94 /* OntheMap_DanielTorresTests */,
 				FBC9F31C1DFDAD9000831A94 /* Products */,
+				FBED12891E0B753900EBCAD7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -203,6 +217,7 @@
 		FBC9F34C1DFDAD9C00831A94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FBED128E1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift */,
 				FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */,
 				FB5381DA1E034EC6006027A2 /* Authentication.swift */,
 				FB3F5FA81E072C7D001FADE3 /* ConstantsLocation.swift */,
@@ -230,6 +245,7 @@
 				FB815AB51E01E09900E4DC63 /* LoginViewController.swift */,
 				FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */,
 				FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */,
+				FBCE26811E097C5700A90877 /* MapViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -251,6 +267,14 @@
 				FBC9F32A1DFDAD9000831A94 /* Info.plist */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		FBED12891E0B753900EBCAD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBED128A1E0B753900EBCAD7 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +347,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = AEWQUX8MPM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					FBC9F32E1DFDAD9000831A94 = {
 						CreatedOnToolsVersion = 8.1;
@@ -395,14 +424,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB3F5FA41E0725B3001FADE3 /* Pin.swift in Sources */,
+				FBED128D1E0C0A6700EBCAD7 /* CLLocationManagerDelegateOnTheMap.swift in Sources */,
 				FB3F5F9A1E07220A001FADE3 /* LocationController.swift in Sources */,
 				FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */,
 				FB3F5FA01E072533001FADE3 /* StudentLocation.swift in Sources */,
 				FB2929861E05992F0049FE43 /* AuthenticationProtocol.swift in Sources */,
-				FB5381CD1E023C5E006027A2 /* OnTheMapTextFieldDelegate.swift in Sources */,
+				FB5381CD1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift in Sources */,
 				FB3F5FA91E072C7D001FADE3 /* ConstantsLocation.swift in Sources */,
 				FB815AB41E01DDB500E4DC63 /* Color.swift in Sources */,
+				FBCE26821E097C5700A90877 /* MapViewController.swift in Sources */,
 				FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */,
+				FBCE26841E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift in Sources */,
 				FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */,
 				FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */,
 				FB3F5F9C1E07236B001FADE3 /* LocationsProtocol.swift in Sources */,
@@ -415,6 +447,7 @@
 				FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */,
 				FB5381D91E034EA3006027A2 /* AthenticationController.swift in Sources */,
 				FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */,
+				FBED128F1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
 				FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */,
 				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,

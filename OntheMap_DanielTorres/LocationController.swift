@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationController: NSObject {
+    
+    var locationManager: LocationManagerOnTheMap? = LocationManagerOnTheMap()
+    let locationDelegate: CLLocationManagerDelegateOnTheMap? = CLLocationManagerDelegateOnTheMap()
+    var lastLocations: [StudentLocation] = [StudentLocation]()
+    var currenLocation: CLLocation? = nil
     
     func getLocations(_ api: LocationsProtocol, numberOFlocationsAsked: Int,  completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ errorString: String?) -> Void){
     
@@ -17,6 +23,7 @@ class LocationController: NSObject {
             
             if success {
                 //If success return list of studentlocations to the completion handler
+                self.lastLocations = locations!
                 completionHandlerForGettingLocations(true, locations, nil)
             }
             else {

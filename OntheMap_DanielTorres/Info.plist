@@ -47,5 +47,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>On the Map requires your permission to acccess you're location</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+	<string>On the Map requires your permission to acccess you're location outside the app</string>
 </dict>
 </plist>

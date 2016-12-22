@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnTheMapTextFieldDelegate: NSObject, UITextFieldDelegate {
+class TextFieldDelegateOnTheMap: NSObject, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
