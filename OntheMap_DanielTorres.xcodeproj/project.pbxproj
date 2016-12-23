@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */; };
 		FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29297F1E058C230049FE43 /* UdacityApiController.swift */; };
 		FB2929841E0590F50049FE43 /* AuthenticationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929831E0590F50049FE43 /* AuthenticationControllerTests.swift */; };
 		FB2929861E05992F0049FE43 /* AuthenticationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		FB29297F1E058C230049FE43 /* UdacityApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiController.swift; sourceTree = "<group>"; };
 		FB2929831E0590F50049FE43 /* AuthenticationControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationControllerTests.swift; path = ../AuthenticationControllerTests.swift; sourceTree = "<group>"; };
 		FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationProtocol.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */,
 				FB5381D31E034BB0006027A2 /* NetworkController.swift */,
 				FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */,
+				FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */,
 				FBCE26841E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift in Sources */,
 				FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */,
+				FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */,
 				FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */,
 				FB3F5F9C1E07236B001FADE3 /* LocationsProtocol.swift in Sources */,
 				FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */,

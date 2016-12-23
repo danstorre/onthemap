@@ -19,10 +19,13 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         configureMap()
-        configureLocationManager()
-        let notificationUpdateUserLocation = Notification.Name("updateUserLocation")
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: notificationUpdateUserLocation, object: nil)
+        guard let locationManager = appDelegate.locationController.locationManager else {
+            return
+        }
+        locationManager.configureLocationManager()
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
         // Do any additional setup after loading the view.
     }
 
@@ -35,6 +38,17 @@ class MapViewController: UIViewController {
 
         locationManager.requestLocation()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        guard let locationManager = appDelegate.locationController.locationManager else {
+            return
+        }
+        
+        locationManager.stopMonitoringSignificantLocationChanges()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,18 +56,10 @@ class MapViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+
+// MARK :- Helper methods
 private extension MapViewController {
 
     func configureMap(){
@@ -63,31 +69,7 @@ private extension MapViewController {
         mapView.showsUserLocation = true
     }
     
-    func configureLocationManager(){
-        
-        
-        guard let locationManager = appDelegate.locationController.locationManager else {
-            return
-        }
-        
-        guard let locationDelegate = appDelegate.locationController.locationDelegate else {
-            return
-        }
-        
-        locationManager.delegate = locationDelegate
-        
-        guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.restricted &&
-            CLLocationManager.authorizationStatus() != CLAuthorizationStatus.denied else  {
-                return
-        }
-        
-        guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
-            locationManager.requestWhenInUseAuthorization()
-            return
-        }
-        
-        locationManager.startMonitoringSignificantLocationChanges()
-    }
+    // MARK :- Display User
     
     @objc func displayUserLocation(){
     
