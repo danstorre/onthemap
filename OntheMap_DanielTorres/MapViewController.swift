@@ -99,7 +99,7 @@ private extension MapViewController {
             return
         }
         
-        let mkCoordinateRegion = MKCoordinateRegionMakeWithDistance(currenLocation.coordinate, 100, 100)
+        let mkCoordinateRegion = MKCoordinateRegionMakeWithDistance(currenLocation.coordinate, 5000, 5000)
         mapView.setRegion(mkCoordinateRegion, animated: true)
         
     }
