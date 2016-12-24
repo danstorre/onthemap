@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class StudentLocation: NSObject {
 
@@ -36,7 +37,8 @@ class StudentLocation: NSObject {
             return
         }
         
-        let location = Location(latitude: latitude, longitude: longitude)
+        let coordinate2d = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let location = LocationAnnotation(coordinate: coordinate2d)
         let address = Address(mapString: mapString, location: location)
         
         guard let firstName = dictionary[ConstantsLocation.JSONBodyResponseParseKeys.firstName] as? String,

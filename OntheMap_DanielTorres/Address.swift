@@ -10,17 +10,11 @@ import UIKit
 
 class Address: NSObject {
 
-    var location : Location
+    var location : LocationAnnotation
     var mapString : String
     
-    init(mapString: String, location: Location) {
+    init(mapString: String, location: LocationAnnotation) {
         self.mapString = mapString
         self.location = location
     }
-}
-
-struct Location {
-
-    var latitude : Double
-    var longitude : Double
 }

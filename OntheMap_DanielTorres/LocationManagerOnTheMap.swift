@@ -11,31 +11,34 @@ import MapKit
 
 class LocationManagerOnTheMap: CLLocationManager {
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func configureLocationManager(){
-            
-            guard let locationManager = appDelegate.locationController.locationManager else {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        guard let locationManager = appDelegate.locationController.locationManager else {
+            return
+        }
+        
+        guard let locationDelegate = appDelegate.locationController.locationDelegate else {
+            return
+        }
+        
+        locationManager.delegate = locationDelegate
+        
+        guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.restricted &&
+            CLLocationManager.authorizationStatus() != CLAuthorizationStatus.denied else  {
                 return
-            }
-            
-            guard let locationDelegate = appDelegate.locationController.locationDelegate else {
-                return
-            }
-            
-            locationManager.delegate = locationDelegate
-            
-            guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.restricted &&
-                CLLocationManager.authorizationStatus() != CLAuthorizationStatus.denied else  {
-                    return
-            }
-            
-            guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
-                locationManager.requestWhenInUseAuthorization()
-                return
-            }
-            
-            locationManager.startMonitoringSignificantLocationChanges()
+        }
+        
+        guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
+        locationManager.startMonitoringSignificantLocationChanges()
     }
     
 }
