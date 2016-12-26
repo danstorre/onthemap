@@ -12,7 +12,7 @@ class ConfigurationNetwork: NSObject {
 
     // MARK: HTTP Methods
     enum HttpMethods : String{
-        case post = "POST", get = "GET", delete = "DELETE"
+        case post = "POST", get = "GET", delete = "DELETE", put = "PUT"
     }
     
 }

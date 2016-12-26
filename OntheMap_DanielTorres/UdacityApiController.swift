@@ -48,17 +48,17 @@ class UdacityApiController: ApiController, AuthenticationProtocol {
                 return sendError("taskForPOSTMethod returns an error")
             }
             
-            if let session = result?[Authentication.JSONBodyResponseUdacityKeys.session] as? [String:AnyObject],
-                let id = session[Authentication.JSONBodyResponseUdacityKeys.id] as? String{
-                completionHandlerForLogout(true, id, nil)
-            } else {
-                sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
+            guard let session = result?[Authentication.JSONBodyResponseUdacityKeys.session] as? [String:AnyObject],
+                let id = session[Authentication.JSONBodyResponseUdacityKeys.id] as? String else {
+                return sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
             }
+            
+            completionHandlerForLogout(true, id, nil)
             
         })
     }
     
-    func getSessionID(_ userName: String, password: String, completionHandlerForLogin: @escaping (_ success: Bool, _ sessionID: String?, _ error: NSError?) -> Void)
+    func getSessionID(_ userName: String, password: String, completionHandlerForLogin: @escaping (_ success: Bool, _ sessionID: String?, _ keyAccount: String?, _ error: NSError?) -> Void)
     {
         
         /* 1. Set the parameters */
@@ -77,19 +77,24 @@ class UdacityApiController: ApiController, AuthenticationProtocol {
             func sendError(_ error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForLogin(false, nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
+                completionHandlerForLogin(false, nil, nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
             }
             
             guard error == nil else {
                 return sendError("taskForPOSTMethod returns an error")
             }
             
-            if let session = result?[Authentication.JSONBodyResponseUdacityKeys.session] as? [String:AnyObject],
-                let id = session[Authentication.JSONBodyResponseUdacityKeys.id] as? String{
-                completionHandlerForLogin(true, id, nil)
-            } else {
-                sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
+            guard let session = result?[Authentication.JSONBodyResponseUdacityKeys.session] as? [String:AnyObject],
+            let id = session[Authentication.JSONBodyResponseUdacityKeys.id] as? String else {
+                return sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.session) in \(result)")
             }
+            
+            guard let account = result?[Authentication.JSONBodyResponseUdacityKeys.account] as? [String:AnyObject],
+                let key = account[Authentication.JSONBodyResponseUdacityKeys.key] as? String else {
+                    return sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.account) in \(result)")
+            }
+            
+            completionHandlerForLogin(true, id, key, nil)
             
         })
     }

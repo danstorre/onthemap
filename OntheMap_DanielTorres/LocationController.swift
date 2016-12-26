@@ -37,6 +37,25 @@ class LocationController: NSObject {
         api.getLastLocations(numberOfLocations: String(numberOFlocationsAsked), completionHandlerForGettingLocations:
             completionForGettingStudentLocations)
     }
+    
+    func postLocation(_ api: LocationsProtocol, studentLocationToPost: StudentLocation,  completionHandlerForPostingLocation: @escaping (_ success: Bool, _ errorString: String?) -> Void){
+        
+        let completionHandlerForPostLocation = { (success: Bool, error: NSError?) -> Void in
+            
+            if success {
+                //If success return list of studentlocations to the completion handler
+                completionHandlerForPostingLocation(true, nil)
+            }
+            else {
+                print(error!)
+                completionHandlerForPostingLocation(false, "Could not post your locations please try again")
+            }
+        }
+        api.postStudentLocation(studentLocationToPost: studentLocationToPost, completionHandlerForPostingLocation: completionHandlerForPostLocation)
+    }
+    
+    
+    
 
 }
 

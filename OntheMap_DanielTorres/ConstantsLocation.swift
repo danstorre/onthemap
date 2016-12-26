@@ -32,12 +32,17 @@ class ConstantsLocation: NSObject {
         // Locations
         static let limit = "limit"
         static let skip = "skip"
+        static let order = "order"
         static let descending = "-"
+        
+        // Getting a student Location 
+        static let whereKey = "where"
     }
     
     // MARK: JSON Body Keys
     struct JSONBodyParseKeys {
-        
+        static let updateAt = "updateAt"
+        static let uniqueKey = "uniqueKey"
         
     }
     
@@ -56,6 +61,7 @@ class ConstantsLocation: NSObject {
         static let mediaURL = "mediaURL"
         static let objectId = "objectId"
         static let uniqueKey = "uniqueKey"
+        static let updatedAt = "updatedAt"
         
     }
 }

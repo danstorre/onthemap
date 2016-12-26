@@ -9,6 +9,6 @@
 import UIKit
 
 protocol AuthenticationProtocol {
-    func getSessionID(_ userName: String, password: String, completionHandlerForLogin: @escaping (_ success: Bool, _ sessionID: String?, _ error: NSError?) -> Void)
+    func getSessionID(_ userName: String, password: String, completionHandlerForLogin: @escaping (_ success: Bool, _ sessionID: String?, _ keyAccount: String?, _ error: NSError?) -> Void)
     func deleteSession(completionHandlerForLogout: @escaping (_ success: Bool, _ deletedSessionID: String?, _ error: NSError?) -> Void)
 }

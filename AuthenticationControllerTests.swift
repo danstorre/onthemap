@@ -41,7 +41,7 @@ class AuthenticationControllerTests: XCTestCase {
             }
         })
         
-        waitForExpectations(timeout: 5.0, handler:nil)
+        waitForExpectations(timeout: 15.0, handler:nil)
         
     }
     
@@ -56,7 +56,7 @@ class AuthenticationControllerTests: XCTestCase {
             
             if success {
                 print("id session deleted \(idSession!)")
-                XCTAssert(true)
+                XCTAssert(self.appDelegate.networkState.sessionID == "")
                 expectations.fulfill()
             }else {
                 print(errorString!)
@@ -67,11 +67,5 @@ class AuthenticationControllerTests: XCTestCase {
         
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            self.test_AuthenticateWithUdacity_SessionID()
-        }
-    }
     
 }

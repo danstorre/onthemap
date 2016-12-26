@@ -11,8 +11,6 @@ import XCTest
 
 class LocationsControllerTests: XCTestCase {
 
-    
-    
     func test_GetListOfStudentsLocations_ArrayStudentLocation() {
         
         let api = ParseApiController()

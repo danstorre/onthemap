@@ -41,6 +41,8 @@ class Authentication: NSObject {
         // Login
         static let session = "session"
         static let id = "id"
+        static let account = "account"
+        static let key = "key"
         
     }
 }

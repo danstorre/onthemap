@@ -19,10 +19,11 @@ class UdacityAPIControllerTests: XCTestCase {
         let udacityApi = UdacityApiController()
         let expectation2 = expectation(description: "Swift Expectations")
         
-        udacityApi.getSessionID("\(Credentials.username)", password: "\(Credentials.password)") { (success, sessionID, error) in
+        udacityApi.getSessionID("\(Credentials.username)", password: "\(Credentials.password)") { (success, sessionID, keyAccount, error) in
             
             if success {
                 print("the session ID is \(sessionID!)")
+                print("the session ID is \(keyAccount!)")
                 XCTAssert(true)
                 expectation2.fulfill()
             } else {

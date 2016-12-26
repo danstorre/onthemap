@@ -24,8 +24,6 @@ class LoginViewController: UIViewController {
         addGestures()
         
     }
-
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,6 +38,8 @@ class LoginViewController: UIViewController {
     // MARK:- Buttons
     
     @IBAction func loginPressed(_ sender: AnyObject) {
+        
+        hideKeyBoard()
         let api = UdacityApiController()
         let authentication = AuthenticationController()
         activity.startAnimating()
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: Login
+    // MARK: Navigation
     
     private func goToNextViewController() {
         self.loginButton.isUserInteractionEnabled = true

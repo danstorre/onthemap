@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationController {
+class AuthenticationController: NSObject {
     
     // MARK:- Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -16,11 +16,12 @@ class AuthenticationController {
     // MARK:- Methods for authentication
     func authenticateWith(_ api: AuthenticationProtocol, userName: String, password: String,  completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void){
         
-        let completionForSessionID = { (success: Bool, sessionID: String?, error: NSError?) -> Void in
+        let completionForSessionID = { (success: Bool, sessionID: String?, keyAccount: String?, error: NSError?) -> Void in
             
             if success {
                 //If success set sessionId to the shared networkController object
                 self.appDelegate.networkState.sessionID = sessionID
+                self.appDelegate.networkState.uniqueKeyAccount = keyAccount
                 completionHandlerForLogin(true, nil)
             }
             else {
@@ -37,6 +38,7 @@ class AuthenticationController {
         let completionForLogout = { (success: Bool, deletedSessionID: String?, error: NSError?) -> Void in
             
             if success {
+                self.appDelegate.networkState.sessionID = ""
                 completionHandlerForLogOut(true, deletedSessionID, nil)
             }
             else {
