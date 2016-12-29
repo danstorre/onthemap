@@ -54,6 +54,20 @@ class LocationController: NSObject {
         api.postStudentLocation(studentLocationToPost: studentLocationToPost, completionHandlerForPostingLocation: completionHandlerForPostLocation)
     }
     
+    func getStudentLocation(_ api: LocationsProtocol, uniqueKeyAccount: String, completionHandlerForGettingLocation: @escaping (StudentLocation?, String?) -> Void) {
+        
+        let completionHandlerAPIForGettingLocation = { (studentLocation: StudentLocation?, error: NSError?) -> Void in
+            
+            guard error == nil else {
+                print(error!.description)
+                return completionHandlerForGettingLocation(nil, "Could not locate any Student with unique Key : \(uniqueKeyAccount)")
+            }
+            
+            completionHandlerForGettingLocation(studentLocation, nil)
+        }
+        api.getStudentLocation(uniqueKeyAccount: uniqueKeyAccount, completionHandlerForGettingLocation: completionHandlerAPIForGettingLocation)
+    }
+    
     
     
 

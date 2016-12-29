@@ -10,6 +10,14 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.otf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.otf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--List-->
         <scene sceneID="9TK-qS-5Ts">
@@ -63,11 +71,145 @@
             </objects>
             <point key="canvasLocation" x="-548" y="-519.49025487256381"/>
         </scene>
+        <!--Input New Location View Controller-->
+        <scene sceneID="p78-QT-Jed">
+            <objects>
+                <viewController id="XqI-EE-L0N" customClass="InputNewLocationViewController" customModule="OntheMap_DanielTorres" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dgu-IL-bIO"/>
+                        <viewControllerLayoutGuide type="bottom" id="lZs-yD-P2x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sib-eD-1Qo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-cj-ks2">
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KH-4e-ctC">
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="215.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Where are you 
+</string>
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.10980392156862745" green="0.28235294117647058" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="24" name="Roboto-Thin"/>
+                                                    <font key="NSOriginalFont" size="36" name="Roboto-Thin"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Studying">
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.10980392156862745" green="0.28235294117647058" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="24" name="Roboto-Medium"/>
+                                                    <font key="NSOriginalFont" size="36" name="Roboto-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> 
+today?</string>
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.10980392156862745" green="0.28235294117647058" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="24" name="Roboto-Thin"/>
+                                                    <font key="NSOriginalFont" size="36" name="Roboto-Thin"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iiN-6k-LKM">
+                                        <rect key="frame" x="0.0" y="215.5" width="383" height="216"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter your location here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fxz-5C-2a9" customClass="TextFieldLogin" customModule="OntheMap_DanielTorres" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="343" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="jOs-Gp-HBA"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Fxz-5C-2a9" firstAttribute="leading" secondItem="iiN-6k-LKM" secondAttribute="leading" constant="20" id="Tch-7j-6Pg"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fxz-5C-2a9" secondAttribute="trailing" constant="20" id="gMs-Ao-FXy"/>
+                                            <constraint firstItem="Fxz-5C-2a9" firstAttribute="top" secondItem="iiN-6k-LKM" secondAttribute="top" constant="20" id="ufh-cC-ycf"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnX-nb-zaN">
+                                        <rect key="frame" x="0.0" y="431.5" width="383" height="215.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-tv-TDV">
+                                                <rect key="frame" x="70" y="90.5" width="243" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="fzd-0o-tkC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                                <state key="normal" title="Find on the map">
+                                                    <color key="titleColor" red="0.10980392160000001" green="0.28235294119999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rGv-tv-TDV" firstAttribute="leading" secondItem="fnX-nb-zaN" secondAttribute="leading" constant="70" id="4OW-ey-BGc"/>
+                                            <constraint firstItem="rGv-tv-TDV" firstAttribute="centerY" secondItem="fnX-nb-zaN" secondAttribute="centerY" id="Mm7-hO-Qfc"/>
+                                            <constraint firstItem="rGv-tv-TDV" firstAttribute="centerX" secondItem="fnX-nb-zaN" secondAttribute="centerX" id="Uk7-QA-p9e"/>
+                                            <constraint firstAttribute="trailing" secondItem="rGv-tv-TDV" secondAttribute="trailing" constant="70" id="Xk4-7q-H0V"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fnX-nb-zaN" firstAttribute="width" secondItem="Bd8-cj-ks2" secondAttribute="width" id="8Wz-F4-vEN"/>
+                                    <constraint firstItem="iiN-6k-LKM" firstAttribute="width" secondItem="Bd8-cj-ks2" secondAttribute="width" id="J9w-zf-y1i"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcd-Ca-4w4">
+                                <rect key="frame" x="307" y="20" width="52" height="32"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.10980392156862745" green="0.28235294117647058" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="XqI-EE-L0N" eventType="touchUpInside" id="k10-UO-riw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bd8-cj-ks2" secondAttribute="trailing" constant="-20" id="1F5-sG-UE7"/>
+                            <constraint firstItem="pcd-Ca-4w4" firstAttribute="top" secondItem="dgu-IL-bIO" secondAttribute="bottom" id="5W9-Ko-Wd3"/>
+                            <constraint firstItem="Bd8-cj-ks2" firstAttribute="leading" secondItem="Sib-eD-1Qo" secondAttribute="leadingMargin" constant="-20" id="QWy-lk-9fu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pcd-Ca-4w4" secondAttribute="trailing" id="TKs-qD-diP"/>
+                            <constraint firstItem="lZs-yD-P2x" firstAttribute="top" secondItem="Bd8-cj-ks2" secondAttribute="bottom" id="Wys-JB-84A"/>
+                            <constraint firstItem="Bd8-cj-ks2" firstAttribute="top" secondItem="dgu-IL-bIO" secondAttribute="bottom" id="Y9g-p1-3vl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputLocation" destination="Fxz-5C-2a9" id="gHL-gs-Brq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlp-5I-zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="357.60000000000002" y="-171.36431784107947"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="VVd-BV-rpp">
             <objects>
                 <navigationController id="iLb-Qn-5z5" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uh8-oq-iIB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uh8-oq-iIB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -91,7 +233,11 @@
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="aP9-RR-HCl" userLabel="Refresh"/>
-                            <barButtonItem image="pin" id="GMb-9z-amA" userLabel="Pin"/>
+                            <barButtonItem image="pin" id="GMb-9z-amA" userLabel="Pin">
+                                <connections>
+                                    <segue destination="XqI-EE-L0N" kind="presentation" id="WMU-4o-CtT"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="JQH-2y-mer">

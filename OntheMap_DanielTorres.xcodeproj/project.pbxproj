@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB01EC151E1573E100ED1BA2 /* InputNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01EC141E1573E100ED1BA2 /* InputNewLocationViewController.swift */; };
+		FB01EC1F1E157F2700ED1BA2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB01EC1C1E157F2700ED1BA2 /* Roboto-Medium.ttf */; };
+		FB01EC201E157F2700ED1BA2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB01EC1D1E157F2700ED1BA2 /* Roboto-Regular.ttf */; };
+		FB01EC211E157F2700ED1BA2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB01EC1E1E157F2700ED1BA2 /* Roboto-Thin.ttf */; };
 		FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */; };
 		FB0614391E0DA40C0098A0F2 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614381E0DA40C0098A0F2 /* LocationAnnotation.swift */; };
 		FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29297F1E058C230049FE43 /* UdacityApiController.swift */; };
@@ -71,6 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB01EC141E1573E100ED1BA2 /* InputNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputNewLocationViewController.swift; sourceTree = "<group>"; };
+		FB01EC1C1E157F2700ED1BA2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		FB01EC1D1E157F2700ED1BA2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		FB01EC1E1E157F2700ED1BA2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		FB0614381E0DA40C0098A0F2 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		FB29297F1E058C230049FE43 /* UdacityApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiController.swift; sourceTree = "<group>"; };
@@ -252,6 +260,7 @@
 				FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */,
 				FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */,
 				FBCE26811E097C5700A90877 /* MapViewController.swift */,
+				FB01EC141E1573E100ED1BA2 /* InputNewLocationViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -259,6 +268,9 @@
 		FBC9F34F1DFDAE6C00831A94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB01EC1C1E157F2700ED1BA2 /* Roboto-Medium.ttf */,
+				FB01EC1D1E157F2700ED1BA2 /* Roboto-Regular.ttf */,
+				FB01EC1E1E157F2700ED1BA2 /* Roboto-Thin.ttf */,
 				FBC9F3501DFDAE9A00831A94 /* Roboto-Medium.otf */,
 				FBC9F3511DFDAE9A00831A94 /* Roboto-Regular.otf */,
 				FBC9F3521DFDAE9A00831A94 /* Roboto-Thin.otf */,
@@ -398,12 +410,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB01EC1F1E157F2700ED1BA2 /* Roboto-Medium.ttf in Resources */,
 				FB3496DA1E06CC0C009F7AE5 /* MainNavigationOntheMap.storyboard in Resources */,
 				FBC9F3531DFDAE9A00831A94 /* Roboto-Medium.otf in Resources */,
 				FBC9F3291DFDAD9000831A94 /* LaunchScreen.storyboard in Resources */,
 				FBC9F3551DFDAE9A00831A94 /* Roboto-Thin.otf in Resources */,
 				FBC9F3541DFDAE9A00831A94 /* Roboto-Regular.otf in Resources */,
+				FB01EC201E157F2700ED1BA2 /* Roboto-Regular.ttf in Resources */,
 				FBC9F3261DFDAD9000831A94 /* Assets.xcassets in Resources */,
+				FB01EC211E157F2700ED1BA2 /* Roboto-Thin.ttf in Resources */,
 				FBC9F3241DFDAD9000831A94 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +458,7 @@
 				FBCE26841E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift in Sources */,
 				FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */,
 				FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */,
+				FB01EC151E1573E100ED1BA2 /* InputNewLocationViewController.swift in Sources */,
 				FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */,
 				FB3F5F9C1E07236B001FADE3 /* LocationsProtocol.swift in Sources */,
 				FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */,
