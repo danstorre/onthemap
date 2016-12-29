@@ -11,6 +11,7 @@
 		FB01EC1F1E157F2700ED1BA2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB01EC1C1E157F2700ED1BA2 /* Roboto-Medium.ttf */; };
 		FB01EC201E157F2700ED1BA2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB01EC1D1E157F2700ED1BA2 /* Roboto-Regular.ttf */; };
 		FB01EC211E157F2700ED1BA2 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB01EC1E1E157F2700ED1BA2 /* Roboto-Thin.ttf */; };
+		FB01EC231E15B25B00ED1BA2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01EC221E15B25B00ED1BA2 /* Font.swift */; };
 		FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */; };
 		FB0614391E0DA40C0098A0F2 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614381E0DA40C0098A0F2 /* LocationAnnotation.swift */; };
 		FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29297F1E058C230049FE43 /* UdacityApiController.swift */; };
@@ -79,6 +80,7 @@
 		FB01EC1C1E157F2700ED1BA2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		FB01EC1D1E157F2700ED1BA2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		FB01EC1E1E157F2700ED1BA2 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		FB01EC221E15B25B00ED1BA2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		FB0614381E0DA40C0098A0F2 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
 		FB29297F1E058C230049FE43 /* UdacityApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				FB815AB31E01DDB500E4DC63 /* Color.swift */,
 				FB5381CF1E024134006027A2 /* UIResponderExtension.swift */,
 				FB815AB01E01D93900E4DC63 /* TextFieldLogin.swift */,
+				FB01EC221E15B25B00ED1BA2 /* Font.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */,
 				FBED128F1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
+				FB01EC231E15B25B00ED1BA2 /* Font.swift in Sources */,
 				FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */,
 				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,
 				FB0614391E0DA40C0098A0F2 /* LocationAnnotation.swift in Sources */,

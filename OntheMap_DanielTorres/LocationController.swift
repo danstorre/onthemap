@@ -68,6 +68,35 @@ class LocationController: NSObject {
         api.getStudentLocation(uniqueKeyAccount: uniqueKeyAccount, completionHandlerForGettingLocation: completionHandlerAPIForGettingLocation)
     }
     
+    func getLocation(from userInput: String, inMap mapview: MKMapView, completionHandlerForGetAddress: @escaping (_ success: Bool, _ placeMark: MKPlacemark?, _ errorString: String?) -> Void) {
+    
+        // Create and initialize a search request object.
+        let request : MKLocalSearchRequest = MKLocalSearchRequest()
+        request.naturalLanguageQuery = userInput
+        request.region = mapview.region
+        
+        // Create and initialize a search object.
+        let localSearch : MKLocalSearch = MKLocalSearch(request: request)
+        
+        localSearch.start(completionHandler: { (responseLocalSearch) in
+            
+            guard responseLocalSearch.1 == nil else {
+                print(responseLocalSearch.1?.localizedDescription ?? "")
+                completionHandlerForGetAddress(false, nil, "Could not load any directions")
+                return
+            }
+            
+            mapview.removeAnnotations(mapview.annotations)
+            let annotionAddress = responseLocalSearch.0!.mapItems.first!.placemark
+            mapview.addAnnotation(annotionAddress)
+            let regionToDisplay = MKCoordinateRegionMakeWithDistance(annotionAddress.coordinate, 5000, 5000)
+            mapview.setRegion(regionToDisplay, animated: true)
+            completionHandlerForGetAddress(true, annotionAddress, nil)
+        
+        })
+        
+    }
+    
     
     
 

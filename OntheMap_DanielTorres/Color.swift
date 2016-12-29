@@ -10,8 +10,9 @@ import UIKit
 
 class Color: UIColor {
     
-    struct Constants {
-        
+    struct OntheMapColors {
+        static let backgroundDarkBlue = Color(netHex: 0x1C4877)
+        static let backgroundGray = Color(netHex: 0xE0E0DD)
     }
     
 }

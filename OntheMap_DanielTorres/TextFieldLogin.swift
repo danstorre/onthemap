@@ -23,6 +23,8 @@ class TextFieldLogin: UITextField {
                 NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 17)!
             ]
             
+            
+            
             let attributedStringToSetRange = NSRange(location: 0, length: newAttributedString.length)
             newAttributedString.addAttributes(loginPlaceHolderAttributes, range: attributedStringToSetRange)
             
