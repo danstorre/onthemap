@@ -159,10 +159,10 @@
 				FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */,
 				FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */,
 				FB3F5F991E07220A001FADE3 /* LocationController.swift */,
+				FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */,
 				FB29297F1E058C230049FE43 /* UdacityApiController.swift */,
 				FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */,
 				FB5381D31E034BB0006027A2 /* NetworkController.swift */,
-				FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */,
 				FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */,
 			);
 			name = "Model Controller";

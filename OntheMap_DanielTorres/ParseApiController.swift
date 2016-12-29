@@ -14,11 +14,6 @@ class ParseApiController: ApiController, LocationsProtocol {
     // MARK:- Post Student Location
     func postStudentLocation(studentLocationToPost: StudentLocation, completionHandlerForPostingLocation: @escaping (Bool, NSError?) -> Void) {
         
-        let appdelegate  = UIApplication.shared.delegate as! AppDelegate
-        
-        guard let uniqueKey = appdelegate.networkState.uniqueKeyAccount else {
-            return
-        }
         
         let completionHandlerForGettingLocation = { (studentLocation: StudentLocation?, error: NSError?) -> () in
         
@@ -44,7 +39,7 @@ class ParseApiController: ApiController, LocationsProtocol {
             var request = NSMutableURLRequest(url: self.parseURLFromParameters(nil, withPathExtension: ConstantsLocation.Methods.parseStudentsLocations))
             
             /* 3. Configure the request */
-            let jsonBody = "{\"\(ConstantsLocation.JSONBodyResponseParseKeys.uniqueKey)\": \"\(uniqueKey)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.firstName)\": \"\(studentLocationToPost.pin!.user.firstName)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.lastName)\": \"\(studentLocationToPost.pin!.user.lastName)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.mapString)\": \"\(studentLocationToPost.pin!.address.mapString)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.mediaURL)\": \"\(studentLocationToPost.pin!.mediaURL)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.latitude)\": \(studentLocationToPost.pin!.address.location.coordinate.latitude), \"\(ConstantsLocation.JSONBodyResponseParseKeys.longitude)\": \(studentLocationToPost.pin!.address.location.coordinate.longitude)}".data(using: String.Encoding.utf8)
+            let jsonBody = "{\"\(ConstantsLocation.JSONBodyResponseParseKeys.uniqueKey)\": \"\(studentLocationToPost.uniqueKey!)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.firstName)\": \"\(studentLocationToPost.pin!.user.firstName)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.lastName)\": \"\(studentLocationToPost.pin!.user.lastName)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.mapString)\": \"\(studentLocationToPost.pin!.address.mapString)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.mediaURL)\": \"\(studentLocationToPost.pin!.mediaURL)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.latitude)\": \(studentLocationToPost.pin!.address.location.coordinate.latitude), \"\(ConstantsLocation.JSONBodyResponseParseKeys.longitude)\": \(studentLocationToPost.pin!.address.location.coordinate.longitude)}".data(using: String.Encoding.utf8)
             
             request = self.createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.post, and: jsonBody)
             
@@ -74,30 +69,21 @@ class ParseApiController: ApiController, LocationsProtocol {
 
         }
         
-        self.getStudentLocation(uniqueKeyAccount: uniqueKey, completionHandlerForGettingLocation: completionHandlerForGettingLocation)
+        self.getStudentLocation(uniqueKeyAccount: studentLocationToPost.uniqueKey!, completionHandlerForGettingLocation: completionHandlerForGettingLocation)
     }
     
     // MARK:- Put New Student Location
     private func putStudentLocation(studentLocationToPut: StudentLocation, completionHandlerForPuttingLocation: @escaping (Bool, NSError?) -> Void) {
         
-        let appdelegate  = UIApplication.shared.delegate as! AppDelegate
-        
-        guard let uniqueKey = appdelegate.networkState.uniqueKeyAccount else {
-            return
-        }
-        
         /* 2. Build the URL & Configure the request*/
-        var request = NSMutableURLRequest(url: parseURLFromParameters(nil, withPathExtension: "\(ConstantsLocation.Methods.parseStudentsLocations)/\(studentLocationToPut.objectId)"))
+        var request = NSMutableURLRequest(url: parseURLFromParameters(nil, withPathExtension: "\(ConstantsLocation.Methods.parseStudentsLocations)/\(studentLocationToPut.objectId!)"))
         
-        request = createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.put, and: nil)
+        let jsonBody = "{\"\(ConstantsLocation.JSONBodyResponseParseKeys.uniqueKey)\": \"\(studentLocationToPut.uniqueKey!)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.firstName)\": \"\(studentLocationToPut.pin!.user.firstName)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.lastName)\": \"\(studentLocationToPut.pin!.user.lastName)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.mapString)\": \"\(studentLocationToPut.pin!.address.mapString)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.mediaURL)\": \"\(studentLocationToPut.pin!.mediaURL)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.latitude)\": \(studentLocationToPut.pin!.address.location.coordinate.latitude), \"\(ConstantsLocation.JSONBodyResponseParseKeys.longitude)\": \(studentLocationToPut.pin!.address.location.coordinate.longitude)}".data(using: String.Encoding.utf8)
         
-        /* 3. Configure the request */
-        let jsonBody = "{\"\(ConstantsLocation.JSONBodyResponseParseKeys.uniqueKey)\": \"\(studentLocationToPut.uniqueKey)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.firstName)\": \"\(studentLocationToPut.pin!.user.firstName)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.lastName)\": \"\(studentLocationToPut.pin!.user.lastName)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.mapString)\": \"\(studentLocationToPut.pin!.address.mapString)\", \"\(ConstantsLocation.JSONBodyResponseParseKeys.mediaURL)\": \"\(studentLocationToPut.pin!.mediaURL)\",\"\(ConstantsLocation.JSONBodyResponseParseKeys.latitude)\": \(studentLocationToPut.pin!.address.location.coordinate.latitude), \"\(ConstantsLocation.JSONBodyResponseParseKeys.longitude)\": \(studentLocationToPut.pin!.address.location.coordinate.longitude)}".data(using: String.Encoding.utf8)
-        
-        request = self.createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.put, and: jsonBody)
+        request = createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.put, and: jsonBody)
         
         /* 4. Make the request */
-        networkController.taskForGetMethod(api: self, request: request, completionHandlerForGET: { (result,error) in
+        networkController.taskForPutMethod(api: self, request: request, completionHandlerForPUT: { (result,error) in
             
             func sendError(_ error: String) {
                 print(error)
@@ -121,17 +107,19 @@ class ParseApiController: ApiController, LocationsProtocol {
     
     // MARK:- Get Student Location
     
-    private func getStudentLocation(uniqueKeyAccount: String, completionHandlerForGettingLocation: @escaping (StudentLocation?, NSError?) -> Void) {
+    func getStudentLocation(uniqueKeyAccount: String, completionHandlerForGettingLocation: @escaping (StudentLocation?, NSError?) -> Void) {
         
         /* 1. Set the parameters */
-        let jsonQuery = "{\"\(ConstantsLocation.JSONBodyParseKeys.uniqueKey)\": \(uniqueKeyAccount)}".data(using: String.Encoding.utf8)
+        let json = "{\"\(ConstantsLocation.JSONBodyResponseParseKeys.uniqueKey)\": \"\(uniqueKeyAccount)\"}"
         
         
         let parameters : [String:AnyObject] = [
-            ConstantsLocation.UrlKeys.whereKey : jsonQuery as AnyObject
+            ConstantsLocation.UrlKeys.whereKey : json as AnyObject,
         ]
         
         /* 2. Build the URL & Configure the request*/
+        
+        
         var request = NSMutableURLRequest(url: parseURLFromParameters(parameters, withPathExtension: ConstantsLocation.Methods.parseStudentsLocations))
         
         request = createRequestForParseWith(request: request, method: ConfigurationNetwork.HttpMethods.get, and: nil)
@@ -163,7 +151,7 @@ class ParseApiController: ApiController, LocationsProtocol {
     }
     
     
-    // MARK:- Get last Student Location
+    // MARK:- Get last Students Locations
 
     func getLastLocations(numberOfLocations: String, completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ error: NSError?) -> Void){
         

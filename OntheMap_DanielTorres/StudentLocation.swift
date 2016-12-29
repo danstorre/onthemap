@@ -11,7 +11,7 @@ import CoreLocation
 
 class StudentLocation: NSObject {
 
-    var objectId: String
+    var objectId: String?
     var uniqueKey: String?
     var pin: Pin?
     
@@ -23,7 +23,9 @@ class StudentLocation: NSObject {
     }
     
     init(dictionary: [String:AnyObject]){
-        objectId = dictionary[ConstantsLocation.JSONBodyResponseParseKeys.objectId] as! String
+        if let objectId = dictionary[ConstantsLocation.JSONBodyResponseParseKeys.objectId] as? String {
+            self.objectId = objectId
+        }
         
         if let uniqueKey = dictionary[ConstantsLocation.JSONBodyResponseParseKeys.uniqueKey] as? String {
             self.uniqueKey = uniqueKey
@@ -64,6 +66,20 @@ class StudentLocation: NSObject {
         }
         
         return studentLocationsToReturn
+    
+    }
+    
+    
+    func toString() -> String{
+        
+        var stringToPrint = ""
+        stringToPrint += "--------------Student Location With Object ID: \(objectId)-------------\n"
+        stringToPrint += "uniqueKey: \(uniqueKey) \n"
+        stringToPrint += "Media URL: \(pin!.mediaURL) \n"
+        stringToPrint += "user: \(pin!.user.firstName) \(pin!.user.lastName) \n"
+        stringToPrint += "Address: \(pin!.address.mapString) : lat. \(pin!.address.location.coordinate.latitude) long. \(pin!.address.location.coordinate.longitude) \n"
+    
+        return stringToPrint
     
     }
 }

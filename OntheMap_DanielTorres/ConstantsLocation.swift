@@ -34,6 +34,7 @@ class ConstantsLocation: NSObject {
         static let skip = "skip"
         static let order = "order"
         static let descending = "-"
+        static let ascending = ""
         
         // Getting a student Location 
         static let whereKey = "where"

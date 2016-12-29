@@ -29,4 +29,31 @@ class ParseAPIControllerTests: XCTestCase {
         waitForExpectations(timeout: 120.0, handler:nil)
     }
     
+    func test_GetAStudentLocation_StudentLocation(){
+        
+        let api = ParseApiController()
+        let expectationSuccess = expectation(description: "Success Get Student Location Expectations")
+        
+        api.getStudentLocation(uniqueKeyAccount: "89298002948", completionHandlerForGettingLocation: { (studentLocation, error) in
+            
+            
+            guard let studentLocation = studentLocation else {
+                print(error!.description)
+                XCTFail()
+                return
+            }
+            
+            XCTAssert(true)
+            
+            print(studentLocation.toString())
+            expectationSuccess.fulfill()
+            
+        })
+        
+        
+        waitForExpectations(timeout: 18.0, handler:nil)
+        
+    }
+    
+    
 }
