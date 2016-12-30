@@ -22,7 +22,25 @@ class AuthenticationController: NSObject {
                 //If success set sessionId to the shared networkController object
                 self.appDelegate.networkState.sessionID = sessionID
                 self.appDelegate.networkState.uniqueKeyAccount = keyAccount
+                api.getUserData(keyAccount!, completionForGettingUserData: { (firstName, lastName, error) in
+                    
+                    guard error == nil else {
+                        print(error!)
+                        return completionHandlerForLogin(false, "Athentication failed please try again")
+                    }
+                    
+                    
+                    guard let pin = self.appDelegate.locationController.currentUserStudentLocation.pin else {
+                        return
+                    }
+                    pin.user.firstName = firstName!
+                    pin.user.lastName = lastName!
+                    self.appDelegate.locationController.currentUserStudentLocation.uniqueKey = keyAccount
+                    
+                })
+                
                 completionHandlerForLogin(true, nil)
+                
             }
             else {
                 print(error!)

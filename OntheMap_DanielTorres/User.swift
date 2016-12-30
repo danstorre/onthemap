@@ -16,4 +16,9 @@ class User: NSObject{
         self.firstName = firstName
         self.lastName = lastName
     }
+    
+    override init() {
+        self.firstName = ""
+        self.lastName = ""
+    }
 }

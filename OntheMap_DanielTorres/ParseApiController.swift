@@ -158,7 +158,7 @@ class ParseApiController: ApiController, LocationsProtocol {
         /* 1. Set the parameters */
         let parameters : [String:AnyObject] = [
             ConstantsLocation.UrlKeys.limit : numberOfLocations as AnyObject,
-            ConstantsLocation.UrlKeys.order : "\(ConstantsLocation.UrlKeys.descending)\(ConstantsLocation.JSONBodyParseKeys.updateAt)" as AnyObject
+            ConstantsLocation.UrlKeys.skip : 0 as AnyObject
         ]
         
         /* 2. Build the URL & Configure the request*/

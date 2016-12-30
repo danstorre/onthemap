@@ -19,4 +19,10 @@ class Pin: NSObject {
         self.user = user
         self.address = address
     }
+    
+    override init() {
+        self.mediaURL = ""
+        self.user = User()
+        self.address = Address()
+    }
 }

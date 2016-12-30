@@ -22,6 +22,12 @@ class StudentLocation: NSObject {
         self.pin = pin
     }
     
+    override init(){
+        self.objectId = ""
+        self.uniqueKey = ""
+        self.pin = Pin()
+    }
+    
     init(dictionary: [String:AnyObject]){
         if let objectId = dictionary[ConstantsLocation.JSONBodyResponseParseKeys.objectId] as? String {
             self.objectId = objectId

@@ -17,4 +17,9 @@ class Address: NSObject {
         self.mapString = mapString
         self.location = location
     }
+    
+    override init() {
+        self.mapString = ""
+        self.location = LocationAnnotation()
+    }
 }

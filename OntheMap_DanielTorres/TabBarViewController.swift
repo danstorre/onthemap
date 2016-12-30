@@ -64,6 +64,34 @@ class TabBarViewController: UITabBarController {
         })
     }
     
+    @IBAction func goToInputScreen(_ sender: Any) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        guard appDelegate.locationController.currentUserStudentLocation.objectId == "" else {
+            let alertViewController = UIAlertController(title: "Alert!", message: "You have already posted a Student Location. would you like to override  your current Location?", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "Ok", style: .default, handler:{ (alerAction) in
+                self.performSegue(withIdentifier: "showInputScreen", sender: nil)
+            })
+            let cancelButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            alertViewController.addAction(okButton)
+            alertViewController.addAction(cancelButton)
+            
+            self.present(alertViewController, animated: true, completion: nil)
+        
+            return
+        }
+        
+        performSegue(withIdentifier: "showInputScreen", sender: nil)
+    }
+    
+
+    @IBAction func refreshData(_ sender: Any) {
+        let notificationRefreshData = Notification.Name("refreshData")
+        NotificationCenter.default.post(name: notificationRefreshData, object: nil)
+    }
     
 }
 

@@ -41,7 +41,10 @@ class LoginViewController: UIViewController {
         
         hideKeyBoard()
         let api = UdacityApiController()
+        let parseAPI = ParseApiController()
         let authentication = AuthenticationController()
+        let locationController = LocationController()
+        
         activity.startAnimating()
         loginButton.isUserInteractionEnabled = false
         
@@ -57,6 +60,17 @@ class LoginViewController: UIViewController {
                 }
                 
                 self.goToNextViewController()
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                
+                locationController.getStudentLocation(parseAPI, uniqueKeyAccount: appDelegate.networkState.uniqueKeyAccount!, completionHandlerForGettingLocation: { (userStudentLocation, errorString) in
+                    guard errorString == nil else {
+                        return
+                    }
+                    
+                    appDelegate.locationController.currentUserStudentLocation = userStudentLocation!
+                })
+                
             }
         }
     }
@@ -69,6 +83,8 @@ class LoginViewController: UIViewController {
         let storyboard =  UIStoryboard(name: "MainNavigationOntheMap", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! UINavigationController
         navigationController?.show(vc, sender: nil)
+        
+        
     }
 
 }

@@ -98,6 +98,42 @@ class UdacityApiController: ApiController, AuthenticationProtocol {
             
         })
     }
+    
+    
+    func getUserData(_ uniqueKeyAccount: String, completionForGettingUserData: @escaping (_ firstName: String?, _ lastName:String?,_ error: NSError?)->Void ){
+    
+        /* 1. Set the parameters */
+        
+        /* 2. Build the URL */
+        var request = NSMutableURLRequest(url: udacityURLFromParameters(nil, withPathExtension: "\(Authentication.Methods.udacityDataUserPath)/\(uniqueKeyAccount)"))
+        request = createRequestForUdacityWith(request: request, method: ConfigurationNetwork.HttpMethods.get, and: nil)
+        
+        /* 4. Make the request */
+        networkController.taskForGetMethod(api: self, request: request, completionHandlerForGET: { (result,error) in
+            
+            func sendError(_ error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey : error]
+                completionForGettingUserData(nil,nil, NSError(domain: "taskForPOSTMethod", code: 1, userInfo: userInfo))
+            }
+            
+            guard error == nil else {
+                return sendError("taskForPOSTMethod returns an error")
+            }
+            
+            guard let user = result?[Authentication.JSONBodyResponseUdacityKeys.user] as? [String:AnyObject], let firstName = user[Authentication.JSONBodyResponseUdacityKeys.firstName] as? String else {
+                return sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.user) in \(result)")
+            }
+            
+            guard let lastName = user[Authentication.JSONBodyResponseUdacityKeys.lastName] as? String else {
+                return sendError("Could not find \(Authentication.JSONBodyResponseUdacityKeys.lastName) in \(result)")
+            }
+            
+            completionForGettingUserData(firstName, lastName, nil)
+            
+        })
+    
+    }
 }
 
 

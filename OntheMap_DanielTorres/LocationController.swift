@@ -15,7 +15,8 @@ class LocationController: NSObject {
     var locationManager: LocationManagerOnTheMap? = LocationManagerOnTheMap()
     let locationDelegate: CLLocationManagerDelegateOnTheMap? = CLLocationManagerDelegateOnTheMap()
     var lastLocations: [StudentLocation] = [StudentLocation]()
-    var currenLocation: CLLocation? = nil
+    var currentLocation: CLLocation? = nil
+    var currentUserStudentLocation: StudentLocation = StudentLocation()
     
     
     func getLocations(_ api: LocationsProtocol, numberOFlocationsAsked: Int,  completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ errorString: String?) -> Void){
@@ -68,6 +69,7 @@ class LocationController: NSObject {
         api.getStudentLocation(uniqueKeyAccount: uniqueKeyAccount, completionHandlerForGettingLocation: completionHandlerAPIForGettingLocation)
     }
     
+
     func getLocation(from userInput: String, inMap mapview: MKMapView, completionHandlerForGetAddress: @escaping (_ success: Bool, _ placeMark: MKPlacemark?, _ errorString: String?) -> Void) {
     
         // Create and initialize a search request object.

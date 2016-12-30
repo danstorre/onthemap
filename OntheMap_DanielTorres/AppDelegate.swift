@@ -42,6 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        let udacityapi = UdacityApiController()
+        let authenticationController = AuthenticationController()
+        
+        authenticationController.logOutWith(udacityapi) { (success, deletedSessionID, errorString) in
+            if success {
+                print("Logout success with session \(deletedSessionID) deleted")
+            }else {
+                print("Logout failed")
+            }
+            
+            
+        }
+        
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 

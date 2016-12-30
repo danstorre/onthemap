@@ -23,6 +23,7 @@ class Authentication: NSObject {
         
         // MARK: Authentication
         static let udacitySessionPath = "/api/session"
+        static let udacityDataUserPath = "/api/users"
     }
     
     // MARK: JSON Body Keys
@@ -43,6 +44,13 @@ class Authentication: NSObject {
         static let id = "id"
         static let account = "account"
         static let key = "key"
+        
+        //retrieve User data
+        static let user = "user"
+        static let lastName = "last_name"
+        static let firstName = "first_name"
+        
+        
         
     }
 }

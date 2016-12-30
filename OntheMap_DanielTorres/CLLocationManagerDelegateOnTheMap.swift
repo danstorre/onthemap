@@ -16,7 +16,7 @@ class CLLocationManagerDelegateOnTheMap: NSObject, CLLocationManagerDelegate  {
     func locationManager(_ locationManager: CLLocationManager, didUpdateLocations: [CLLocation]){
     
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.locationController.currenLocation = didUpdateLocations.last
+        appDelegate.locationController.currentLocation = didUpdateLocations.last
         
         let notificationUpdateUserLocation = Notification.Name("updateUserLocation")
         NotificationCenter.default.post(name: notificationUpdateUserLocation, object: nil)

@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.otf">
+        <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
         <array key="Roboto-Regular.otf">
@@ -100,7 +100,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KH-4e-ctC">
-                                                <rect key="frame" x="116" y="81" width="152" height="94.5"/>
+                                                <rect key="frame" x="115.5" y="80.5" width="152" height="94.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
                                                         <string key="content">Where are you 
@@ -225,11 +225,15 @@ today?</string>
                                     <constraint firstAttribute="trailing" secondItem="rGv-tv-TDV" secondAttribute="trailing" constant="70" id="Xk4-7q-H0V"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="beM-s9-Ofi">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Bd8-cj-ks2" secondAttribute="trailing" constant="-20" id="1F5-sG-UE7"/>
                             <constraint firstItem="pcd-Ca-4w4" firstAttribute="top" secondItem="dgu-IL-bIO" secondAttribute="bottom" id="5W9-Ko-Wd3"/>
+                            <constraint firstItem="beM-s9-Ofi" firstAttribute="centerX" secondItem="Sib-eD-1Qo" secondAttribute="centerX" id="9G5-GS-lbR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fnX-nb-zaN" secondAttribute="trailing" constant="-20" id="9QF-Ni-dXh"/>
                             <constraint firstItem="lZs-yD-P2x" firstAttribute="top" secondItem="tb9-SM-e70" secondAttribute="bottom" id="DHG-fX-UBu"/>
                             <constraint firstItem="fnX-nb-zaN" firstAttribute="leading" secondItem="Sib-eD-1Qo" secondAttribute="leadingMargin" constant="-20" id="EOE-dy-m2x"/>
@@ -240,11 +244,13 @@ today?</string>
                             <constraint firstItem="lZs-yD-P2x" firstAttribute="top" secondItem="fnX-nb-zaN" secondAttribute="bottom" id="Sxj-ot-1jy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pcd-Ca-4w4" secondAttribute="trailing" id="TKs-qD-diP"/>
                             <constraint firstItem="Bd8-cj-ks2" firstAttribute="top" secondItem="dgu-IL-bIO" secondAttribute="bottom" id="Y9g-p1-3vl"/>
+                            <constraint firstItem="beM-s9-Ofi" firstAttribute="centerY" secondItem="Sib-eD-1Qo" secondAttribute="centerY" id="fQ7-Yp-WMB"/>
                             <constraint firstItem="tb9-SM-e70" firstAttribute="top" secondItem="Fxz-5C-2a9" secondAttribute="bottom" constant="-64" id="mjy-lj-b7l"/>
                             <constraint firstItem="fnX-nb-zaN" firstAttribute="height" secondItem="Sib-eD-1Qo" secondAttribute="height" multiplier="0.2" id="oUO-k7-VI0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activity" destination="beM-s9-Ofi" id="QWY-aM-gF5"/>
                         <outlet property="button" destination="rGv-tv-TDV" id="QCs-7S-Je7"/>
                         <outlet property="cancelButton" destination="pcd-Ca-4w4" id="B6m-06-0Ll"/>
                         <outlet property="inputLocation" destination="Fxz-5C-2a9" id="gHL-gs-Brq"/>
@@ -258,7 +264,7 @@ today?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlp-5I-zfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357.60000000000002" y="-171.36431784107947"/>
+            <point key="canvasLocation" x="370" y="-191"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VVd-BV-rpp">
@@ -287,10 +293,14 @@ today?</string>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="aP9-RR-HCl" userLabel="Refresh"/>
+                            <barButtonItem systemItem="refresh" id="aP9-RR-HCl" userLabel="Refresh">
+                                <connections>
+                                    <action selector="refreshData:" destination="uuK-Wa-6mA" id="nNB-VK-bBr"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="pin" id="GMb-9z-amA" userLabel="Pin">
                                 <connections>
-                                    <segue destination="XqI-EE-L0N" kind="presentation" id="WMU-4o-CtT"/>
+                                    <action selector="goToInputScreen:" destination="uuK-Wa-6mA" id="rPq-Vt-Bcg"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -306,6 +316,7 @@ today?</string>
                         <outlet property="refreshData" destination="aP9-RR-HCl" id="Ok9-rm-FzQ"/>
                         <segue destination="RIi-WI-l8t" kind="relationship" relationship="viewControllers" id="rKD-q7-iUS"/>
                         <segue destination="3d6-iO-0uI" kind="relationship" relationship="viewControllers" id="TSv-HZ-HXC"/>
+                        <segue destination="XqI-EE-L0N" kind="presentation" identifier="showInputScreen" id="iMa-zV-x6y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0z-qT-81A" userLabel="First Responder" sceneMemberID="firstResponder"/>

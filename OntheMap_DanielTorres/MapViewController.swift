@@ -23,6 +23,7 @@ class MapViewController: UIViewController {
         configureLocationManager()
         
         NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.addAnnotions), name: Notification.notificationRefreshData, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,7 @@ class MapViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         NotificationCenter.default.removeObserver(self, name: Notification.notificationUpdateUserLocation, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.notificationRefreshData, object: nil)
         
         guard let locationManager = appDelegate.locationController.locationManager else {
             return
@@ -85,7 +87,7 @@ private extension MapViewController {
             return
         }
         
-        guard let currenLocation = appDelegate.locationController.currenLocation else {
+        guard let currenLocation = appDelegate.locationController.currentLocation else {
             return
         }
         
@@ -96,8 +98,9 @@ private extension MapViewController {
     
     // MARK :- Add annotions to mapView
     
-    func addAnnotions(){
+    @objc func addAnnotions(){
         
+        mapView.removeAnnotations(mapView.annotations)
         let apiParse = ParseApiController()
         let locationController = LocationController()
         
@@ -112,18 +115,21 @@ private extension MapViewController {
                 return self.displayAlert("there are no annotations at the moment", completionHandler: {})
             }
             
-            for studentLocation in listStudentLocations {
-                
-                
-                guard let pin = studentLocation.pin else {
-                    continue
+            performUIUpdatesOnMain {
+                for studentLocation in listStudentLocations {
+                    
+                    
+                    guard let pin = studentLocation.pin else {
+                        continue
+                    }
+                    let annotation = pin.address.location
+                    annotation.title = pin.user.firstName + " " + pin.user.lastName
+                    annotation.subtitle = pin.mediaURL
+                    
+                    self.mapView.addAnnotation(annotation)
                 }
-                let annotation = pin.address.location
-                annotation.title = pin.user.firstName + " " + pin.user.lastName
-                annotation.subtitle = pin.mediaURL
-                
-                self.mapView.addAnnotation(annotation)
             }
+           
         }
     }
     

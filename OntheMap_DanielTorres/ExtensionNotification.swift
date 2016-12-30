@@ -12,6 +12,7 @@ extension Notification {
     
     
     static let notificationUpdateUserLocation = Notification.Name("updateUserLocation")
+    static let notificationRefreshData = Notification.Name("refreshData")
     
     
 }
