@@ -125,6 +125,7 @@
                         <outlet property="emailTextField" destination="vR3-S8-cyH" id="8Ho-yM-dha"/>
                         <outlet property="loginButton" destination="4z1-n9-eZf" id="nj7-Y8-UnB"/>
                         <outlet property="passTextField" destination="yms-Mk-LvD" id="CuP-ws-u89"/>
+                        <outlet property="signUpButton" destination="a8X-fu-4XH" id="oBc-mZ-vxQ"/>
                         <segue destination="CNh-Ix-HSv" kind="presentation" identifier="login" id="a7p-2x-XPb"/>
                     </connections>
                 </viewController>

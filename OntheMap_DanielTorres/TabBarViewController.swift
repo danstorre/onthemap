@@ -39,29 +39,22 @@ class TabBarViewController: UITabBarController {
         authentication.logOutWith(api, completionHandlerForLogOut: {(success, idSession, errorString) in
             
             performUIUpdatesOnMain {
+                let loginViewController : UIViewController? = UIApplication.shared.windows.first?.rootViewController
                 guard success else {
                     self.userinteractionOnBarButtonItems(true)
-                    return self.displayAlert(errorString!, completionHandler: {})
+                    return loginViewController!.displayAlert(errorString!, completionHandler: {})
                 }
-                self.goBackToLogin()
-            }
-        })
-    }
-    
-    // MARK: - Navigation
-    private func goBackToLogin(){
-        self.navigationController?.dismiss(animated: true, completion: {
-            performUIUpdatesOnMain {
-                
-                let loginViewController : UIViewController? = UIApplication.shared.windows.first?.rootViewController
                 
                 UIView.animate(withDuration: 0.6, animations: {
                     loginViewController?.displayMessage("Come back any time!", "Logout Success", completionHandler: {})
                 })
-                
             }
         })
+        
+        self.navigationController?.dismiss(animated: true, completion: {})
     }
+    
+    // MARK: - Navigation
     
     @IBAction func goToInputScreen(_ sender: Any) {
         

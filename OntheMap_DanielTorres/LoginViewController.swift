@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     let customTFDelegate : TextFieldDelegateOnTheMap = TextFieldDelegateOnTheMap()
     
+    @IBOutlet weak var signUpButton: UIButton!
     // MARK: - View controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         passTextField.text = ""
+        loginButton.isEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,12 +56,12 @@ class LoginViewController: UIViewController {
         let locationController = LocationController()
         
         activity.startAnimating()
-        loginButton.isUserInteractionEnabled = false
+        loginButton.isEnabled = false
         
         authentication.authenticateWith(api, userName: emailTextField.text!, password: passTextField.text!){ (success, errorString) in
             
             performUIUpdatesOnMain{
-                
+                self.loginButton.isEnabled = true
                 guard success else {
                     return self.displayAlert(errorString!) {
                         self.activity.stopAnimating()
