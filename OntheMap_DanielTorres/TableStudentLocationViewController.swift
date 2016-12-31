@@ -116,5 +116,9 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
         return UIView()
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
 
 }
