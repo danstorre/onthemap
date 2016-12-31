@@ -115,6 +115,7 @@ private extension MapViewController {
                 return self.displayAlert("there are no annotations at the moment", completionHandler: {})
             }
             
+            self.appDelegate.locationController.lastLocations = listStudentLocations
             performUIUpdatesOnMain {
                 for studentLocation in listStudentLocations {
                     

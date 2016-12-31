@@ -45,8 +45,7 @@ class TabBarViewController: UITabBarController {
                 }
                 self.goBackToLogin()
             }
-        }
-        )
+        })
     }
     
     // MARK: - Navigation

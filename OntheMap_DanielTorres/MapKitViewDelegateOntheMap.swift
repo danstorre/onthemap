@@ -13,10 +13,26 @@ class MapKitViewDelegateOntheMap: NSObject, MKMapViewDelegate {
     
     var annotationIdentifier = "annotionView"
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
+        
+        guard let annotationPin = view as? MKPinAnnotationView else {
+            return
+        }
+        
+        guard let link = annotationPin.annotation?.subtitle, let url = URL(string: link!) else {
+            return
+        }
+        
+        
+        UIApplication.shared.open(url, options: ["" : ""], completionHandler: nil)
+        
+    
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         
-        guard annotation.isKind(of: MKUserLocation.self) else {
+        guard !annotation.isKind(of: MKUserLocation.self) else {
             return nil
         }
         
@@ -35,16 +51,15 @@ class MapKitViewDelegateOntheMap: NSObject, MKMapViewDelegate {
         pinAnnotationView.animatesDrop = true
         pinAnnotationView.canShowCallout = true
         
-        let rightButtonAccessory = UIButton(type: .infoDark)
-        rightButtonAccessory.addTarget(self, action: #selector(accessHtmlLink), for: UIControlEvents.touchUpInside)
+        
+        let rightButtonAccessory = UIButton(type: UIButtonType.detailDisclosure)
+        
         pinAnnotationView.rightCalloutAccessoryView = rightButtonAccessory
         
-        return annotationView
+        
+        return pinAnnotationView
     }
     
-    func accessHtmlLink(){
-        
-    }
     
     
 }

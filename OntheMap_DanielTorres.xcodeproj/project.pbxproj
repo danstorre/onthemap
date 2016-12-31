@@ -44,6 +44,7 @@
 		FB815AB11E01D93900E4DC63 /* TextFieldLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB815AB01E01D93900E4DC63 /* TextFieldLogin.swift */; };
 		FB815AB41E01DDB500E4DC63 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB815AB31E01DDB500E4DC63 /* Color.swift */; };
 		FB815AB61E01E09900E4DC63 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB815AB51E01E09900E4DC63 /* LoginViewController.swift */; };
+		FBC307901E184CED0053C758 /* TableStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3078F1E184CED0053C758 /* TableStudentLocationViewController.swift */; };
 		FBC9F31F1DFDAD9000831A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9F31E1DFDAD9000831A94 /* AppDelegate.swift */; };
 		FBC9F3241DFDAD9000831A94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3221DFDAD9000831A94 /* Main.storyboard */; };
 		FBC9F3261DFDAD9000831A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC9F3251DFDAD9000831A94 /* Assets.xcassets */; };
@@ -113,6 +114,7 @@
 		FB815AB01E01D93900E4DC63 /* TextFieldLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldLogin.swift; sourceTree = "<group>"; };
 		FB815AB31E01DDB500E4DC63 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		FB815AB51E01E09900E4DC63 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FBC3078F1E184CED0053C758 /* TableStudentLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableStudentLocationViewController.swift; sourceTree = "<group>"; };
 		FBC9F31B1DFDAD9000831A94 /* OntheMap_DanielTorres.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OntheMap_DanielTorres.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC9F31E1DFDAD9000831A94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBC9F3231DFDAD9000831A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */,
 				FBCE26811E097C5700A90877 /* MapViewController.swift */,
 				FB01EC141E1573E100ED1BA2 /* InputNewLocationViewController.swift */,
+				FBC3078F1E184CED0053C758 /* TableStudentLocationViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				FB01EC231E15B25B00ED1BA2 /* Font.swift in Sources */,
 				FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */,
 				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,
+				FBC307901E184CED0053C758 /* TableStudentLocationViewController.swift in Sources */,
 				FB0614391E0DA40C0098A0F2 /* LocationAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -623,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

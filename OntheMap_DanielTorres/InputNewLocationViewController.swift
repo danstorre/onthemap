@@ -67,9 +67,10 @@ class InputNewLocationViewController: UIViewController {
                     return
                 }
                 self.newMKannotation = placeMark
-                self.nextView()
+                
             }
         })
+        self.nextView()
     }
     
 
@@ -102,9 +103,15 @@ class InputNewLocationViewController: UIViewController {
             return self.displayAlert("Don't you want to share a media url?", completionHandler: {})
         }
         
+        guard let newMKannotation = newMKannotation else {
+            return
+        }
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
+        
+        
         
         activity.startAnimating()
         button.isEnabled = false
@@ -117,8 +124,8 @@ class InputNewLocationViewController: UIViewController {
         let lastName = appDelegate.locationController.currentUserStudentLocation.pin?.user.firstName
         let uniqueKey = appDelegate.locationController.currentUserStudentLocation.uniqueKey
         //Post student location
-        let newLocation = LocationAnnotation(coordinate: self.newMKannotation!.coordinate)
-        let newAddress = Address(mapString: self.inputLocation.text!, location: newLocation)
+        let newLocation = LocationAnnotation(coordinate: newMKannotation.coordinate)
+        let newAddress = Address(mapString: inputLocation.text!, location: newLocation)
         let pin = Pin(mediaURL: mediaurl, user: User(firstName: firsName!, lastName: lastName!), address: newAddress)
         let studentLocationToPost = StudentLocation(objectId: "", uniquekey: uniqueKey!, pin: pin)
         
