@@ -16,13 +16,13 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(TableStudentLocationViewController.didReloadData), name: Notification.notificationRefreshData, object: nil)
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(TableStudentLocationViewController.didReloadData), name: Notification.notificationRefreshData, object: nil)
         reloadData()
     }
     
@@ -39,12 +39,10 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     // MARK: - notifications
     
     func didReloadData(){
-        
         reloadData()
     }
     
     func reloadData(){
-        
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return

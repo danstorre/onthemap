@@ -21,13 +21,13 @@ class MapViewController: UIViewController {
         
         configureMap()
         configureLocationManager()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.addAnnotions), name: Notification.notificationRefreshData, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.addAnnotions), name: Notification.notificationRefreshData, object: nil)
         
         addAnnotions()
         
@@ -91,7 +91,7 @@ private extension MapViewController {
             return
         }
         
-        let mkCoordinateRegion = MKCoordinateRegionMakeWithDistance(currenLocation.coordinate, 5000, 5000)
+        let mkCoordinateRegion = MKCoordinateRegionMakeWithDistance(currenLocation.coordinate, 5000000, 5000000)
         mapView.setRegion(mkCoordinateRegion, animated: true)
         
     }

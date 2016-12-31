@@ -37,6 +37,14 @@ class LoginViewController: UIViewController {
     
     // MARK:- Buttons
     
+    @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        let link = "https://auth.udacity.com/"
+        guard let url = URL(string: link) else {
+            return
+        }
+        UIApplication.shared.open(url, options: ["":""], completionHandler: nil)
+    }
+    
     @IBAction func loginPressed(_ sender: AnyObject) {
         
         hideKeyBoard()

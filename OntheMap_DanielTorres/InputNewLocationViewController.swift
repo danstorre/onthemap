@@ -111,8 +111,6 @@ class InputNewLocationViewController: UIViewController {
             return
         }
         
-        
-        
         activity.startAnimating()
         button.isEnabled = false
         
@@ -131,11 +129,17 @@ class InputNewLocationViewController: UIViewController {
         
         locationController.postLocation(parseAPI, studentLocationToPost: studentLocationToPost, completionHandlerForPostingLocation: { (success, errorMessageFromPost) in
             performUIUpdatesOnMain {
+                
+                let navigationController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
+                
+                let mapViewController = navigationController.visibleViewController
+                
                 guard errorMessageFromPost == nil else {
-                    let mapViewController : UIViewController? = UIApplication.shared.windows.first?.rootViewController
-                    
                     return mapViewController!.displayAlert(errorMessageFromPost!, completionHandler: {})
                 }
+                mapViewController!.displayMessage("Location Updated", "You're location has been updated, refresh data to view last locations", completionHandler: {})
+                
+                
             }
         })
         
