@@ -63,6 +63,9 @@ class InputNewLocationViewController: UIViewController {
                 self.activity.stopAnimating()
                 guard success else {
                     self.displayAlert(errorMessage!, completionHandler: {})
+                    let reachabilityDidChangeNotification = Notification.Name("ReachabilityDidChangeNotification")
+                    NotificationCenter.default.post(name: reachabilityDidChangeNotification, object: nil)
+                    
                     return
                 }
                 self.newMKannotation = placeMark

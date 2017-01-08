@@ -42,6 +42,7 @@
 		FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */; };
 		FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381DA1E034EC6006027A2 /* Authentication.swift */; };
 		FB656FC21E227D31009A9CF9 /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656FC11E227D31009A9CF9 /* AuthenticationAPI.swift */; };
+		FB656FC41E22824D009A9CF9 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656FC31E22824D009A9CF9 /* Reachability.swift */; };
 		FB815AB11E01D93900E4DC63 /* TextFieldLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB815AB01E01D93900E4DC63 /* TextFieldLogin.swift */; };
 		FB815AB41E01DDB500E4DC63 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB815AB31E01DDB500E4DC63 /* Color.swift */; };
 		FB815AB61E01E09900E4DC63 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB815AB51E01E09900E4DC63 /* LoginViewController.swift */; };
@@ -114,6 +115,7 @@
 		FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationNetwork.swift; sourceTree = "<group>"; };
 		FB5381DA1E034EC6006027A2 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FB656FC11E227D31009A9CF9 /* AuthenticationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
+		FB656FC31E22824D009A9CF9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FB815AB01E01D93900E4DC63 /* TextFieldLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldLogin.swift; sourceTree = "<group>"; };
 		FB815AB31E01DDB500E4DC63 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		FB815AB51E01E09900E4DC63 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */,
 				FB5381D31E034BB0006027A2 /* NetworkController.swift */,
 				FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */,
+				FB656FC31E22824D009A9CF9 /* Reachability.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */,
 				FBED128F1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
+				FB656FC41E22824D009A9CF9 /* Reachability.swift in Sources */,
 				FB01EC231E15B25B00ED1BA2 /* Font.swift in Sources */,
 				FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */,
 				FB3496DC1E06CFA8009F7AE5 /* GCDBlackBox.swift in Sources */,

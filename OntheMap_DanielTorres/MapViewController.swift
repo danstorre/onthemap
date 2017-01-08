@@ -108,6 +108,8 @@ private extension MapViewController {
             guard success else {
                 performUIUpdatesOnMain {
                     self.indicator.stopAnimating()
+                    let reachabilityDidChangeNotification = Notification.Name("ReachabilityDidChangeNotification")
+                    NotificationCenter.default.post(name: reachabilityDidChangeNotification, object: nil)
                 }
                 return self.displayAlert(errorMessage!, completionHandler: {})
             }

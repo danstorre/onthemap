@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     let customTFDelegate : TextFieldDelegateOnTheMap = TextFieldDelegateOnTheMap()
+    var reachability: Reachability? = Reachability.networkReachabilityForInternetConnection()
     
     @IBOutlet weak var signUpButton: UIButton!
     // MARK: - View controller life cycle
@@ -24,14 +25,48 @@ class LoginViewController: UIViewController {
         configureTextFields()
         addGestures()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: ReachabilityDidChangeNotificationName), object: nil)
+        
+        _ = reachability?.startNotifier()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkReachability()
         passTextField.text = ""
         loginButton.isEnabled = true
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        reachability?.stopNotifier()
+    }
+    
+    // MARK:- Reachabilty Methods
 
+    func reachabilityDidChange(_ notification: Notification) {
+        checkReachability()
+    }
+
+    func checkReachability() {
+        guard let r = reachability else { return }
+        guard r.isReachable else {
+            performUIUpdatesOnMain {
+                let rootViewController : UIViewController? = UIApplication.shared.keyWindow?.rootViewController
+                
+                
+                guard let presentedViewController = rootViewController?.presentedViewController else {
+                    return rootViewController!.displayAlert("Check Your Internet Connection", completionHandler: {})
+                }
+                
+                presentedViewController.displayAlert("Check Your Internet Connection", completionHandler: {})
+                
+                
+            }
+            return
+        }
+    }
     
     // MARK:- Buttons
     
@@ -59,6 +94,8 @@ class LoginViewController: UIViewController {
             performUIUpdatesOnMain{
                 self.loginButton.isEnabled = true
                 guard success else {
+                    let reachabilityDidChangeNotification = Notification.Name("ReachabilityDidChangeNotification")
+                    NotificationCenter.default.post(name: reachabilityDidChangeNotification, object: nil)
                     return self.displayAlert(errorString!) {
                         self.activity.stopAnimating()
                         self.loginButton.isUserInteractionEnabled = true
@@ -89,7 +126,6 @@ class LoginViewController: UIViewController {
         let storyboard =  UIStoryboard(name: "MainNavigationOntheMap", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! UINavigationController
         navigationController?.show(vc, sender: nil)
-        
         
     }
 
