@@ -43,6 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        NotificationCenter.default.removeObserver(self, name: Notification.notificationUpdateUserLocation, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.notificationRefreshData, object: nil)
+        
         let udacityapi = UdacityApiController()
         let authenticationController = AuthenticationAPI()
         

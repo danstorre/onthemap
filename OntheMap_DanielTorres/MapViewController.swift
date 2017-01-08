@@ -23,13 +23,15 @@ class MapViewController: UIViewController {
         configureMap()
         configureLocationManager()
         addAnnotions()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.addAnnotions), name: Notification.notificationRefreshData, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.addAnnotions), name: Notification.notificationRefreshData, object: nil)
+        
         
         guard let locationManager = appDelegate.locationController.locationManager else {
             return
@@ -42,8 +44,6 @@ class MapViewController: UIViewController {
         
         super.viewWillDisappear(animated)
         
-        NotificationCenter.default.removeObserver(self, name: Notification.notificationUpdateUserLocation, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.notificationRefreshData, object: nil)
         
         guard let locationManager = appDelegate.locationController.locationManager else {
             return
@@ -106,12 +106,21 @@ private extension MapViewController {
             
             
             guard success else {
-                performUIUpdatesOnMain {
-                    self.indicator.stopAnimating()
+                let rootViewController : UIViewController? = UIApplication.shared.keyWindow?.rootViewController
+                
+                
+                guard let presentedViewController = rootViewController?.presentedViewController else {
                     let reachabilityDidChangeNotification = Notification.Name("ReachabilityDidChangeNotification")
                     NotificationCenter.default.post(name: reachabilityDidChangeNotification, object: nil)
+                    return rootViewController!.displayAlert(errorMessage!, completionHandler: {})
                 }
-                return self.displayAlert(errorMessage!, completionHandler: {})
+                
+                performUIUpdatesOnMain {
+                    self.indicator.stopAnimating()
+                }
+                let reachabilityDidChangeNotification = Notification.Name("ReachabilityDidChangeNotification")
+                NotificationCenter.default.post(name: reachabilityDidChangeNotification, object: nil)
+                return presentedViewController.displayAlert(errorMessage!, completionHandler: {})
             }
             
             guard let listStudentLocations = listStudentLocations else {
