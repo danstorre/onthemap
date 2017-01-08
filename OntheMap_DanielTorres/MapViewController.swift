@@ -87,8 +87,11 @@ private extension MapViewController {
             return
         }
         
+        
         let mkCoordinateRegion = MKCoordinateRegionMakeWithDistance(currenLocation.coordinate, 5000000, 5000000)
-        mapView.setRegion(mkCoordinateRegion, animated: true)
+        performUIUpdatesOnMain {
+            self.mapView.setRegion(mkCoordinateRegion, animated: true)
+        }
         
     }
     
@@ -96,8 +99,10 @@ private extension MapViewController {
     
     @objc func addAnnotions(){
         
-        indicator.startAnimating()
-        mapView.removeAnnotations(mapView.annotations)
+        performUIUpdatesOnMain {
+            self.indicator.startAnimating()
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
         let apiParse = ParseApiController()
         let locationController = Location()
         
@@ -132,6 +137,7 @@ private extension MapViewController {
             
             StudentInformation.sharedInstance().lastLocations = listStudentLocations
             performUIUpdatesOnMain {
+                self.mapView.removeAnnotations(self.mapView.annotations)
                 self.indicator.stopAnimating()
                 for studentLocation in listStudentLocations {
                     

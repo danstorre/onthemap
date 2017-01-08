@@ -23,7 +23,7 @@ class ParseApiController: ApiController, LocationsProtocol {
                 var studentLocationToPut = studentLocation
                 studentLocationToPut!.pin!.mediaURL = studentLocationToPost.pin!.mediaURL
                 studentLocationToPut!.pin!.address = newAddress
-                return self.putStudentLocation(studentLocationToPut: studentLocation!, completionHandlerForPuttingLocation: { (success, error) in
+                return self.putStudentLocation(studentLocationToPut: studentLocationToPut!, completionHandlerForPuttingLocation: { (success, error) in
                     
                     if success {
                         completionHandlerForPostingLocation(true, nil)
