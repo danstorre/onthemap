@@ -138,7 +138,13 @@ class InputNewLocationViewController: UIViewController {
                 let mapViewController = navigationController.visibleViewController
                 
                 guard errorMessageFromPost == nil else {
-                    return mapViewController!.displayAlert(errorMessageFromPost!, completionHandler: {})
+                    let reachabilityDidChangeNotification = Notification.Name("ReachabilityDidChangeNotification")
+                    NotificationCenter.default.post(name: reachabilityDidChangeNotification, object: nil)
+                    guard let presentedViewController = mapViewController?.presentedViewController else {
+                        return mapViewController!.displayAlert(errorMessageFromPost!, completionHandler: {})
+                    }
+                    
+                    return presentedViewController.displayAlert(errorMessageFromPost!, completionHandler: {})
                 }
                 mapViewController!.displayMessage("Location Updated", "You're location has been updated, refresh data to view last locations", completionHandler: {})
                 
