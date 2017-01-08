@@ -32,10 +32,6 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK:- Buttons
     
@@ -52,8 +48,8 @@ class LoginViewController: UIViewController {
         hideKeyBoard()
         let api = UdacityApiController()
         let parseAPI = ParseApiController()
-        let authentication = AuthenticationController()
-        let locationController = LocationController()
+        let authentication = AuthenticationAPI()
+        let locationController = Location()
         
         activity.startAnimating()
         loginButton.isEnabled = false
@@ -78,7 +74,7 @@ class LoginViewController: UIViewController {
                         return
                     }
                     
-                    appDelegate.locationController.currentUserStudentLocation = userStudentLocation!
+                    StudentInformation.sharedInstance().currentStudentLocation = userStudentLocation!
                 })
                 
             }

@@ -20,8 +20,9 @@ class ParseApiController: ApiController, LocationsProtocol {
             guard studentLocation == nil else {
                 //update student location
                 let newAddress = Address(mapString: studentLocationToPost.pin!.address.mapString, location: studentLocationToPost.pin!.address.location)
-                studentLocation!.pin!.mediaURL = studentLocationToPost.pin!.mediaURL
-                studentLocation!.pin!.address = newAddress
+                var studentLocationToPut = studentLocation
+                studentLocationToPut!.pin!.mediaURL = studentLocationToPost.pin!.mediaURL
+                studentLocationToPut!.pin!.address = newAddress
                 return self.putStudentLocation(studentLocationToPut: studentLocation!, completionHandlerForPuttingLocation: { (success, error) in
                     
                     if success {
@@ -158,7 +159,8 @@ class ParseApiController: ApiController, LocationsProtocol {
         /* 1. Set the parameters */
         let parameters : [String:AnyObject] = [
             ConstantsLocation.UrlKeys.limit : numberOfLocations as AnyObject,
-            ConstantsLocation.UrlKeys.skip : 0 as AnyObject
+            ConstantsLocation.UrlKeys.skip : 0 as AnyObject,
+            ConstantsLocation.UrlKeys.order : "\(ConstantsLocation.UrlKeys.descending)\(ConstantsLocation.JSONBodyResponseParseKeys.updatedAt)" as AnyObject
         ]
         
         /* 2. Build the URL & Configure the request*/

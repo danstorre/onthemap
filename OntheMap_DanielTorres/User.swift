@@ -8,7 +8,7 @@
 
 import UIKit
 
-class User: NSObject{
+struct User {
     var firstName: String
     var lastName: String
     
@@ -17,7 +17,7 @@ class User: NSObject{
         self.lastName = lastName
     }
     
-    override init() {
+    init() {
         self.firstName = ""
         self.lastName = ""
     }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class StudentLocation: NSObject {
+struct StudentLocation {
 
     var objectId: String?
     var uniqueKey: String?
@@ -22,7 +22,7 @@ class StudentLocation: NSObject {
         self.pin = pin
     }
     
-    override init(){
+    init(){
         self.objectId = ""
         self.uniqueKey = ""
         self.pin = Pin()
@@ -64,7 +64,7 @@ class StudentLocation: NSObject {
     }
     
     
-    class func arrayOfStudentLocations(from dictionary: [[String:AnyObject]]) -> [StudentLocation]{
+    static func arrayOfStudentLocations(from dictionary: [[String:AnyObject]]) -> [StudentLocation]{
         var studentLocationsToReturn = [StudentLocation]()
         
         for studentlocation in dictionary{
@@ -81,10 +81,13 @@ class StudentLocation: NSObject {
         var stringToPrint = ""
         stringToPrint += "--------------Student Location With Object ID: \(objectId)-------------\n"
         stringToPrint += "uniqueKey: \(uniqueKey) \n"
-        stringToPrint += "Media URL: \(pin!.mediaURL) \n"
-        stringToPrint += "user: \(pin!.user.firstName) \(pin!.user.lastName) \n"
-        stringToPrint += "Address: \(pin!.address.mapString) : lat. \(pin!.address.location.coordinate.latitude) long. \(pin!.address.location.coordinate.longitude) \n"
-    
+        
+        if let pin = pin {
+            stringToPrint += "Media URL: \(pin.mediaURL) \n"
+            stringToPrint += "user: \(pin.user.firstName) \(pin.user.lastName) \n"
+            stringToPrint += "Address: \(pin.address.mapString) : lat. \(pin.address.location.coordinate.latitude) long. \(pin.address.location.coordinate.longitude) \n"
+        }
+        
         return stringToPrint
     
     }

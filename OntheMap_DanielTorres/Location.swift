@@ -9,14 +9,14 @@
 import UIKit
 import MapKit
 
-class LocationController: NSObject {
+class Location: NSObject {
     
     
     var locationManager: LocationManagerOnTheMap? = LocationManagerOnTheMap()
     let locationDelegate: CLLocationManagerDelegateOnTheMap? = CLLocationManagerDelegateOnTheMap()
-    var lastLocations: [StudentLocation] = [StudentLocation]()
     var currentLocation: CLLocation? = nil
-    var currentUserStudentLocation: StudentLocation = StudentLocation()
+    
+    // MARK:- Methods
     
     
     func getLocations(_ api: LocationsProtocol, numberOFlocationsAsked: Int,  completionHandlerForGettingLocations: @escaping (_ success: Bool, _ locations: [StudentLocation]?, _ errorString: String?) -> Void){
@@ -26,7 +26,8 @@ class LocationController: NSObject {
             
             if success {
                 //If success return list of studentlocations to the completion handler
-                self.lastLocations = locations!
+                
+                StudentInformation.sharedInstance().lastLocations = locations!
                 completionHandlerForGettingLocations(true, locations, nil)
             }
             else {

@@ -17,7 +17,7 @@ class AuthenticationControllerTests: XCTestCase {
     func test_AuthenticateWithUdacity_SessionID() {
         
         let api = UdacityApiController()
-        let authenticationController = AuthenticationController()
+        let authenticationController = AuthenticationAPI()
         let expectationSuccess = expectation(description: "Success Login Expectations")
         let expectationWrongCredentials = expectation(description: "Failure Login credentials")
         
@@ -48,7 +48,7 @@ class AuthenticationControllerTests: XCTestCase {
     func test_LogoutWithUdacity() {
         
         let api = UdacityApiController()
-        let authenticationController = AuthenticationController()
+        let authenticationController = AuthenticationAPI()
         let expectations = expectation(description: "Logout with udacity Expectations")
         
         

@@ -23,17 +23,13 @@ class TabBarViewController: UITabBarController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - Actions
     
     @IBAction func logOutButtonAction(_ sender: UIBarButtonItem) {
         
         let api = UdacityApiController()
-        let authentication = AuthenticationController()
+        let authentication = AuthenticationAPI()
         userinteractionOnBarButtonItems(false)
         
         authentication.logOutWith(api, completionHandlerForLogOut: {(success, idSession, errorString) in
@@ -58,11 +54,7 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func goToInputScreen(_ sender: Any) {
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        guard appDelegate.locationController.currentUserStudentLocation.objectId == "" else {
+        guard StudentInformation.sharedInstance().currentStudentLocation.objectId == "" else {
             let alertViewController = UIAlertController(title: "Alert!", message: "You have already posted a Student Location. would you like to override  your current Location?", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Ok", style: .default, handler:{ (alerAction) in
                 self.performSegue(withIdentifier: "showInputScreen", sender: nil)

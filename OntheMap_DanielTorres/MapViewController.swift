@@ -14,6 +14,7 @@ class MapViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     var mapDelegate = MapKitViewDelegateOntheMap()
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class MapViewController: UIViewController {
         
         configureMap()
         configureLocationManager()
+        addAnnotions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,8 +30,6 @@ class MapViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.displayUserLocation), name: Notification.notificationUpdateUserLocation, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.addAnnotions), name: Notification.notificationRefreshData, object: nil)
-        
-        addAnnotions()
         
         guard let locationManager = appDelegate.locationController.locationManager else {
             return
@@ -52,10 +52,6 @@ class MapViewController: UIViewController {
         locationManager.stopMonitoringSignificantLocationChanges()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
 }
@@ -100,23 +96,32 @@ private extension MapViewController {
     
     @objc func addAnnotions(){
         
+        indicator.startAnimating()
         mapView.removeAnnotations(mapView.annotations)
         let apiParse = ParseApiController()
-        let locationController = LocationController()
+        let locationController = Location()
+        
         
         locationController.getLocations(apiParse, numberOFlocationsAsked: 100) { (success, listStudentLocations, errorMessage) in
             
             
             guard success else {
+                performUIUpdatesOnMain {
+                    self.indicator.stopAnimating()
+                }
                 return self.displayAlert(errorMessage!, completionHandler: {})
             }
             
             guard let listStudentLocations = listStudentLocations else {
+                performUIUpdatesOnMain {
+                    self.indicator.stopAnimating()
+                }
                 return self.displayAlert("there are no annotations at the moment", completionHandler: {})
             }
             
-            self.appDelegate.locationController.lastLocations = listStudentLocations
+            StudentInformation.sharedInstance().lastLocations = listStudentLocations
             performUIUpdatesOnMain {
+                self.indicator.stopAnimating()
                 for studentLocation in listStudentLocations {
                     
                     

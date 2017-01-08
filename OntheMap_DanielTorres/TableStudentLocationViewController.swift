@@ -31,11 +31,6 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
         NotificationCenter.default.removeObserver(self, name: Notification.notificationRefreshData, object: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - notifications
     
     func didReloadData(){
@@ -44,19 +39,9 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     
     func reloadData(){
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
         
-        listStudentLocations = appDelegate.locationController.lastLocations
+        listStudentLocations = StudentInformation.sharedInstance().lastLocations
         
-        listStudentLocations.sort { (student1, student2) -> Bool in
-            
-            guard student1.pin != nil, student2.pin != nil else {
-                return false
-            }
-            return student1.pin!.user.lastName < student1.pin!.user.lastName
-        }
         tableStudentLocations.reloadData()
     }
     

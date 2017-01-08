@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Pin: NSObject {
+struct Pin {
     var mediaURL : String
     var address : Address
     var user : User
@@ -20,7 +20,7 @@ class Pin: NSObject {
         self.address = address
     }
     
-    override init() {
+    init() {
         self.mediaURL = ""
         self.user = User()
         self.address = Address()

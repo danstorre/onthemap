@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Address: NSObject {
+struct Address {
 
     var location : LocationAnnotation
     var mapString : String
@@ -18,7 +18,7 @@ class Address: NSObject {
         self.location = location
     }
     
-    override init() {
+    init() {
         self.mapString = ""
         self.location = LocationAnnotation()
     }

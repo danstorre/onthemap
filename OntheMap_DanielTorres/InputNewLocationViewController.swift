@@ -37,10 +37,6 @@ class InputNewLocationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK: - Button Actions
 
@@ -57,11 +53,14 @@ class InputNewLocationViewController: UIViewController {
             return
         }
         
-        let locationController = LocationController()
+        let locationController = Location()
+        
+        activity.startAnimating()
         
         locationController.getLocation(from: addressToSearch, inMap: mapview,   completionHandlerForGetAddress: { (success, placeMark, errorMessage) in
             
             performUIUpdatesOnMain {
+                self.activity.stopAnimating()
                 guard success else {
                     self.displayAlert(errorMessage!, completionHandler: {})
                     return
@@ -100,36 +99,37 @@ class InputNewLocationViewController: UIViewController {
     func finishPosting(){
         
         guard let mediaurl = inputMediaUrl.text, mediaurl != "" else {
-            return self.displayAlert("Don't you want to share a media url?", completionHandler: {})
+            return self.displayAlert("Don't you want to share a media url?", completionHandler: {
+            })
         }
         
         guard let newMKannotation = newMKannotation else {
             return
         }
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
         activity.startAnimating()
         button.isEnabled = false
         
-        let locationController = LocationController()
+        let locationController = Location()
         let parseAPI = ParseApiController()
         
         //verify if the user has a student location in parse (automatic saved in appDelegate )
-        let firsName = appDelegate.locationController.currentUserStudentLocation.pin?.user.lastName
-        let lastName = appDelegate.locationController.currentUserStudentLocation.pin?.user.firstName
-        let uniqueKey = appDelegate.locationController.currentUserStudentLocation.uniqueKey
+        let studentInformationSharedInstance = StudentInformation.sharedInstance()
+        let firsName = studentInformationSharedInstance.currentStudentLocation.pin?.user.lastName
+        let lastName = studentInformationSharedInstance.currentStudentLocation.pin?.user.firstName
+        let uniqueKey = studentInformationSharedInstance.currentStudentLocation.uniqueKey
+        let objectID = studentInformationSharedInstance.currentStudentLocation.objectId
         //Post student location
         let newLocation = LocationAnnotation(coordinate: newMKannotation.coordinate)
         let newAddress = Address(mapString: inputLocation.text!, location: newLocation)
         let pin = Pin(mediaURL: mediaurl, user: User(firstName: firsName!, lastName: lastName!), address: newAddress)
-        let studentLocationToPost = StudentLocation(objectId: "", uniquekey: uniqueKey!, pin: pin)
+        let studentLocationToPost = StudentLocation(objectId: objectID!, uniquekey: uniqueKey!, pin: pin)
         
         locationController.postLocation(parseAPI, studentLocationToPost: studentLocationToPost, completionHandlerForPostingLocation: { (success, errorMessageFromPost) in
             performUIUpdatesOnMain {
                 
+                
+                self.button.isEnabled = true
                 let navigationController = UIApplication.shared.keyWindow?.rootViewController as! UINavigationController
                 
                 let mapViewController = navigationController.visibleViewController
@@ -139,12 +139,12 @@ class InputNewLocationViewController: UIViewController {
                 }
                 mapViewController!.displayMessage("Location Updated", "You're location has been updated, refresh data to view last locations", completionHandler: {})
                 
-                
             }
         })
         
         self.activity.stopAnimating()
         self.dismiss(animated: true, completion: {})
+        
     }
 
 }

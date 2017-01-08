@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthenticationController: NSObject {
+class AuthenticationAPI: NSObject {
     
     // MARK:- Properties
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -30,12 +30,9 @@ class AuthenticationController: NSObject {
                     }
                     
                     
-                    guard let pin = self.appDelegate.locationController.currentUserStudentLocation.pin else {
-                        return
-                    }
-                    pin.user.firstName = firstName!
-                    pin.user.lastName = lastName!
-                    self.appDelegate.locationController.currentUserStudentLocation.uniqueKey = keyAccount
+                    StudentInformation.sharedInstance().currentStudentLocation.pin!.user.firstName = firstName!
+                    StudentInformation.sharedInstance().currentStudentLocation.pin!.user.lastName = lastName!
+                    StudentInformation.sharedInstance().currentStudentLocation.uniqueKey = keyAccount
                     
                 })
                 

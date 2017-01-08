@@ -14,10 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var networkState : NetworkController = NetworkController()
-    var locationController: LocationController = LocationController()
+    var locationController: Location = Location()
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         
         // Override point for customization after application launch.
         return true
@@ -43,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         let udacityapi = UdacityApiController()
-        let authenticationController = AuthenticationController()
+        let authenticationController = AuthenticationAPI()
         
         authenticationController.logOutWith(udacityapi) { (success, deletedSessionID, errorString) in
             if success {
