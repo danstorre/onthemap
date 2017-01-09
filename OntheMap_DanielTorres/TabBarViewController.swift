@@ -28,7 +28,7 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func logOutButtonAction(_ sender: UIBarButtonItem) {
         
-        let api = UdacityApiController()
+        let api = UdacityApi()
         let authentication = AuthenticationAPI()
         userinteractionOnBarButtonItems(false)
         
@@ -54,7 +54,7 @@ class TabBarViewController: UITabBarController {
     
     @IBAction func goToInputScreen(_ sender: Any) {
         
-        guard StudentInformation.sharedInstance().currentStudentLocation.objectId == "" else {
+        guard StudentInformation.shared.currentStudentLocation.objectId == "" else {
             let alertViewController = UIAlertController(title: "Alert!", message: "You have already posted a Student Location. would you like to override  your current Location?", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Ok", style: .default, handler:{ (alerAction) in
                 self.performSegue(withIdentifier: "showInputScreen", sender: nil)

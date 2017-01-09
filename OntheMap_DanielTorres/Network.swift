@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NetworkController: NSObject {
+class Network: NSObject {
     
     // MARK: Properties
     
@@ -20,7 +20,7 @@ class NetworkController: NSObject {
     var uniqueKeyAccount: String? = nil
     
     // Mark: Put
-    func taskForPutMethod(api: ApiController, request: NSMutableURLRequest,
+    func taskForPutMethod(api: Api, request: NSMutableURLRequest,
                           completionHandlerForPUT: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 4. Make the request */
@@ -50,7 +50,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.isKind(of: UdacityApiController.self) {
+            if api.isKind(of: UdacityApi.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
@@ -65,7 +65,7 @@ class NetworkController: NSObject {
     }
     
     // Mark: Get
-    func taskForGetMethod(api: ApiController, request: NSMutableURLRequest,
+    func taskForGetMethod(api: Api, request: NSMutableURLRequest,
                            completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
         /* 4. Make the request */
@@ -95,7 +95,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.isKind(of: UdacityApiController.self) {
+            if api.isKind(of: UdacityApi.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
@@ -111,7 +111,7 @@ class NetworkController: NSObject {
 
     
     // MARK: POST
-    func taskForPOSTMethod(api: ApiController, request: NSMutableURLRequest,
+    func taskForPOSTMethod(api: Api, request: NSMutableURLRequest,
                            completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         /* 4. Make the request */
@@ -141,7 +141,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.isKind(of: UdacityApiController.self) {
+            if api.isKind(of: UdacityApi.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
@@ -157,7 +157,7 @@ class NetworkController: NSObject {
     }
     
     // MARK: DELETE
-    func taskForDeleteMethod(from api: ApiController, request: NSMutableURLRequest,
+    func taskForDeleteMethod(from api: Api, request: NSMutableURLRequest,
                            completionHandlerForDelete: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         /* 4. Make the request */
@@ -187,7 +187,7 @@ class NetworkController: NSObject {
                 return
             }
             
-            if api.isKind(of: UdacityApiController.self) {
+            if api.isKind(of: UdacityApi.self) {
                 let range = Range(uncheckedBounds: (5, data.count))
                 data = data.subdata(in: range)
             }
@@ -204,7 +204,7 @@ class NetworkController: NSObject {
 }
 
 
-private extension NetworkController {
+private extension Network {
     
     // MARK:- Helpers 
     

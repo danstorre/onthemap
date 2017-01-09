@@ -103,7 +103,7 @@ private extension MapViewController {
             self.indicator.startAnimating()
             self.mapView.removeAnnotations(self.mapView.annotations)
         }
-        let apiParse = ParseApiController()
+        let apiParse = ParseApi()
         let locationController = Location()
         
         
@@ -135,7 +135,7 @@ private extension MapViewController {
                 return self.displayAlert("there are no annotations at the moment", completionHandler: {})
             }
             
-            StudentInformation.sharedInstance().lastLocations = listStudentLocations
+            StudentInformation.shared.lastLocations = listStudentLocations
             performUIUpdatesOnMain {
                 self.mapView.removeAnnotations(self.mapView.annotations)
                 self.indicator.stopAnimating()

@@ -8,16 +8,11 @@
 
 import UIKit
 
-class StudentInformation : NSObject {
+final class StudentInformation : NSObject {
 
     var currentStudentLocation = StudentLocation()
     var lastLocations: [StudentLocation] = [StudentLocation]()
     
-    class func sharedInstance() -> StudentInformation {
-        struct Singleton {
-            static var sharedInstance = StudentInformation()
-        }
-        return Singleton.sharedInstance
-    }
+    static let shared = StudentInformation()
 
 }

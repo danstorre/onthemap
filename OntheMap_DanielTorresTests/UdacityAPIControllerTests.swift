@@ -16,7 +16,7 @@ class UdacityAPIControllerTests: XCTestCase {
     
     func test_GetSessionID_SessionID() {
         
-        let udacityApi = UdacityApiController()
+        let udacityApi = UdacityApi()
         let expectation2 = expectation(description: "Swift Expectations")
         
         udacityApi.getSessionID("\(Credentials.username)", password: "\(Credentials.password)") { (success, sessionID, keyAccount, error) in

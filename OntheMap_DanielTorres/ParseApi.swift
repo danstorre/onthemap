@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParseApiController: ApiController, LocationsProtocol {
+class ParseApi: Api, LocationsProtocol {
     
     
     // MARK:- Post Student Location
@@ -197,7 +197,7 @@ class ParseApiController: ApiController, LocationsProtocol {
 
 
 // MARK:- Helper methods
-private extension ParseApiController {
+private extension ParseApi {
     // Create Request for PARSE
     func createRequestForParseWith(request : NSMutableURLRequest, method: ConfigurationNetwork.HttpMethods, and jsonBody : Data?) -> NSMutableURLRequest{
         

@@ -81,8 +81,8 @@ class LoginViewController: UIViewController {
     @IBAction func loginPressed(_ sender: AnyObject) {
         
         hideKeyBoard()
-        let api = UdacityApiController()
-        let parseAPI = ParseApiController()
+        let api = UdacityApi()
+        let parseAPI = ParseApi()
         let authentication = AuthenticationAPI()
         let locationController = Location()
         
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController {
                         return
                     }
                     
-                    StudentInformation.sharedInstance().currentStudentLocation = userStudentLocation!
+                    StudentInformation.shared.currentStudentLocation = userStudentLocation!
                 })
                 
             }

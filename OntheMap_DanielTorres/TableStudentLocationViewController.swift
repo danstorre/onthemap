@@ -10,7 +10,6 @@ import UIKit
 
 class TableStudentLocationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var listStudentLocations = [StudentLocation]()
 
     @IBOutlet weak var tableStudentLocations: UITableView!
     override func viewDidLoad() {
@@ -40,7 +39,7 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     func reloadData(){
         
         
-        listStudentLocations = StudentInformation.sharedInstance().lastLocations
+        
         
         tableStudentLocations.reloadData()
     }
@@ -48,13 +47,13 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     
     // MARK: - tableview methods.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listStudentLocations.count
+        return StudentInformation.shared.lastLocations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellOfStudentLocation = tableView.dequeueReusableCell(withIdentifier: "studentcell")! as UITableViewCell
         
-        let studentLocation = listStudentLocations[indexPath.row]
+        let studentLocation = StudentInformation.shared.lastLocations[indexPath.row]
         
         
         guard let pin = studentLocation.pin, pin.user.lastName != "" else {
@@ -71,7 +70,7 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let studentLocation = listStudentLocations[indexPath.row]
+        let studentLocation = StudentInformation.shared.lastLocations[indexPath.row]
         
         guard let link = studentLocation.pin?.mediaURL , let url = URL(string: link), (link.contains("http://") || link.contains("https://")) else {
             
@@ -85,7 +84,7 @@ class TableStudentLocationViewController: UIViewController, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        let studentLocation = listStudentLocations[indexPath.row]
+        let studentLocation = StudentInformation.shared.lastLocations[indexPath.row]
         
         guard let pin = studentLocation.pin, pin.user.lastName != "" else {
             return 0

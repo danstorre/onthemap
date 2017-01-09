@@ -1,5 +1,5 @@
 //
-//  ParseAPIControllerTests.swift
+//  ParseApiTests.swift
 //  OntheMap_DanielTorres
 //
 //  Created by Daniel Torres on 12/19/16.
@@ -9,11 +9,11 @@
 import XCTest
 @testable import OntheMap_DanielTorres
 
-class ParseAPIControllerTests: XCTestCase {
+class ParseApiTests: XCTestCase {
     
     func test_GetLocationsStudents_ListStudentLocation() {
         
-        let parseApi = ParseApiController()
+        let parseApi = ParseApi()
         let expectation2 = expectation(description: "Swift Expectations")
         
         parseApi.getLastLocations(numberOfLocations: "100", completionHandlerForGettingLocations:{ (success, arrayStudentLocation, error) in
@@ -31,7 +31,7 @@ class ParseAPIControllerTests: XCTestCase {
     
     func test_GetAStudentLocation_StudentLocation(){
         
-        let api = ParseApiController()
+        let api = ParseApi()
         let expectationSuccess = expectation(description: "Success Get Student Location Expectations")
         
         api.getStudentLocation(uniqueKeyAccount: "89298002948", completionHandlerForGettingLocation: { (studentLocation, error) in

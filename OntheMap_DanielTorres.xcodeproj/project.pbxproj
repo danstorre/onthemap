@@ -14,7 +14,7 @@
 		FB01EC231E15B25B00ED1BA2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB01EC221E15B25B00ED1BA2 /* Font.swift */; };
 		FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */; };
 		FB0614391E0DA40C0098A0F2 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0614381E0DA40C0098A0F2 /* LocationAnnotation.swift */; };
-		FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29297F1E058C230049FE43 /* UdacityApiController.swift */; };
+		FB2929801E058C230049FE43 /* UdacityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB29297F1E058C230049FE43 /* UdacityApi.swift */; };
 		FB2929841E0590F50049FE43 /* AuthenticationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929831E0590F50049FE43 /* AuthenticationControllerTests.swift */; };
 		FB2929861E05992F0049FE43 /* AuthenticationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */; };
 		FB2929881E05B1070049FE43 /* UdacityAPIControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2929871E05B1070049FE43 /* UdacityAPIControllerTests.swift */; };
@@ -27,18 +27,18 @@
 		FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */; };
 		FB3F5F9A1E07220A001FADE3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F991E07220A001FADE3 /* Location.swift */; };
 		FB3F5F9C1E07236B001FADE3 /* LocationsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */; };
-		FB3F5F9E1E072444001FADE3 /* ParseApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */; };
+		FB3F5F9E1E072444001FADE3 /* ParseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9D1E072444001FADE3 /* ParseApi.swift */; };
 		FB3F5FA01E072533001FADE3 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5F9F1E072533001FADE3 /* StudentLocation.swift */; };
 		FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA11E0725A0001FADE3 /* User.swift */; };
 		FB3F5FA41E0725B3001FADE3 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA31E0725B3001FADE3 /* Pin.swift */; };
 		FB3F5FA71E0725FE001FADE3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA61E0725FE001FADE3 /* Address.swift */; };
 		FB3F5FA91E072C7D001FADE3 /* ConstantsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FA81E072C7D001FADE3 /* ConstantsLocation.swift */; };
-		FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */; };
+		FB3F5FAB1E072DE5001FADE3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAA1E072DE5001FADE3 /* Api.swift */; };
 		FB3F5FAD1E086299001FADE3 /* LocationsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAC1E086299001FADE3 /* LocationsControllerTests.swift */; };
 		FB3F5FAF1E086CE9001FADE3 /* ParseAPIControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3F5FAE1E086CE9001FADE3 /* ParseAPIControllerTests.swift */; };
 		FB5381CD1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CC1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift */; };
 		FB5381D01E024134006027A2 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381CF1E024134006027A2 /* UIResponderExtension.swift */; };
-		FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D31E034BB0006027A2 /* NetworkController.swift */; };
+		FB5381D41E034BB0006027A2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D31E034BB0006027A2 /* Network.swift */; };
 		FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */; };
 		FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5381DA1E034EC6006027A2 /* Authentication.swift */; };
 		FB656FC21E227D31009A9CF9 /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB656FC11E227D31009A9CF9 /* AuthenticationAPI.swift */; };
@@ -86,7 +86,7 @@
 		FB01EC221E15B25B00ED1BA2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		FB0614381E0DA40C0098A0F2 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
-		FB29297F1E058C230049FE43 /* UdacityApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiController.swift; sourceTree = "<group>"; };
+		FB29297F1E058C230049FE43 /* UdacityApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApi.swift; sourceTree = "<group>"; };
 		FB2929831E0590F50049FE43 /* AuthenticationControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationControllerTests.swift; path = ../AuthenticationControllerTests.swift; sourceTree = "<group>"; };
 		FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationProtocol.swift; sourceTree = "<group>"; };
 		FB2929871E05B1070049FE43 /* UdacityAPIControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityAPIControllerTests.swift; sourceTree = "<group>"; };
@@ -100,18 +100,18 @@
 		FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		FB3F5F991E07220A001FADE3 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsProtocol.swift; sourceTree = "<group>"; };
-		FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseApiController.swift; sourceTree = "<group>"; };
+		FB3F5F9D1E072444001FADE3 /* ParseApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseApi.swift; sourceTree = "<group>"; };
 		FB3F5F9F1E072533001FADE3 /* StudentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		FB3F5FA11E0725A0001FADE3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB3F5FA31E0725B3001FADE3 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		FB3F5FA61E0725FE001FADE3 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		FB3F5FA81E072C7D001FADE3 /* ConstantsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantsLocation.swift; sourceTree = "<group>"; };
-		FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
+		FB3F5FAA1E072DE5001FADE3 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		FB3F5FAC1E086299001FADE3 /* LocationsControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsControllerTests.swift; sourceTree = "<group>"; };
 		FB3F5FAE1E086CE9001FADE3 /* ParseAPIControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAPIControllerTests.swift; sourceTree = "<group>"; };
 		FB5381CC1E023C5E006027A2 /* TextFieldDelegateOnTheMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegateOnTheMap.swift; sourceTree = "<group>"; };
 		FB5381CF1E024134006027A2 /* UIResponderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
-		FB5381D31E034BB0006027A2 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		FB5381D31E034BB0006027A2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FB5381D51E034D17006027A2 /* ConfigurationNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationNetwork.swift; sourceTree = "<group>"; };
 		FB5381DA1E034EC6006027A2 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FB656FC11E227D31009A9CF9 /* AuthenticationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FB815AAF1E01B8EC00E4DC63 /* Model Controller */ = {
+		FB815AAF1E01B8EC00E4DC63 /* Model View */ = {
 			isa = PBXGroup;
 			children = (
 				FB3496DB1E06CFA8009F7AE5 /* GCDBlackBox.swift */,
@@ -176,14 +176,14 @@
 				FB2929851E05992F0049FE43 /* AuthenticationProtocol.swift */,
 				FB3F5F9B1E07236B001FADE3 /* LocationsProtocol.swift */,
 				FB3F5F991E07220A001FADE3 /* Location.swift */,
-				FB3F5FAA1E072DE5001FADE3 /* ApiController.swift */,
-				FB29297F1E058C230049FE43 /* UdacityApiController.swift */,
-				FB3F5F9D1E072444001FADE3 /* ParseApiController.swift */,
-				FB5381D31E034BB0006027A2 /* NetworkController.swift */,
+				FB3F5FAA1E072DE5001FADE3 /* Api.swift */,
+				FB29297F1E058C230049FE43 /* UdacityApi.swift */,
+				FB3F5F9D1E072444001FADE3 /* ParseApi.swift */,
+				FB5381D31E034BB0006027A2 /* Network.swift */,
 				FB0614361E0D79280098A0F2 /* ExtensionNotification.swift */,
 				FB656FC31E22824D009A9CF9 /* Reachability.swift */,
 			);
-			name = "Model Controller";
+			name = "Model View";
 			sourceTree = "<group>";
 		};
 		FBC9F3121DFDAD8F00831A94 = {
@@ -210,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC9F34E1DFDADA700831A94 /* View Controller */,
-				FB815AAF1E01B8EC00E4DC63 /* Model Controller */,
+				FB815AAF1E01B8EC00E4DC63 /* Model View */,
 				FBC9F34D1DFDADA100831A94 /* View */,
 				FBC9F34C1DFDAD9C00831A94 /* Model */,
 				FBC9F31E1DFDAD9000831A94 /* AppDelegate.swift */,
@@ -268,9 +268,9 @@
 		FBC9F34E1DFDADA700831A94 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */,
 				FB815AB51E01E09900E4DC63 /* LoginViewController.swift */,
 				FB3496DD1E06E43A009F7AE5 /* TabBarViewController.swift */,
-				FB3496DF1E06E557009F7AE5 /* ExtensionViewController.swift */,
 				FBCE26811E097C5700A90877 /* MapViewController.swift */,
 				FB01EC141E1573E100ED1BA2 /* InputNewLocationViewController.swift */,
 				FBC3078F1E184CED0053C758 /* TableStudentLocationViewController.swift */,
@@ -471,7 +471,7 @@
 				FBCE26821E097C5700A90877 /* MapViewController.swift in Sources */,
 				FB3496DE1E06E43A009F7AE5 /* TabBarViewController.swift in Sources */,
 				FBCE26841E097E3B00A90877 /* MapKitViewDelegateOntheMap.swift in Sources */,
-				FB2929801E058C230049FE43 /* UdacityApiController.swift in Sources */,
+				FB2929801E058C230049FE43 /* UdacityApi.swift in Sources */,
 				FB0614371E0D79280098A0F2 /* ExtensionNotification.swift in Sources */,
 				FB01EC151E1573E100ED1BA2 /* InputNewLocationViewController.swift in Sources */,
 				FB3F5FA21E0725A0001FADE3 /* User.swift in Sources */,
@@ -479,11 +479,11 @@
 				FB5381DB1E034EC6006027A2 /* Authentication.swift in Sources */,
 				FB815AB11E01D93900E4DC63 /* TextFieldLogin.swift in Sources */,
 				FB815AB61E01E09900E4DC63 /* LoginViewController.swift in Sources */,
-				FB5381D41E034BB0006027A2 /* NetworkController.swift in Sources */,
-				FB3F5F9E1E072444001FADE3 /* ParseApiController.swift in Sources */,
+				FB5381D41E034BB0006027A2 /* Network.swift in Sources */,
+				FB3F5F9E1E072444001FADE3 /* ParseApi.swift in Sources */,
 				FBC9F31F1DFDAD9000831A94 /* AppDelegate.swift in Sources */,
 				FB3496E01E06E557009F7AE5 /* ExtensionViewController.swift in Sources */,
-				FB3F5FAB1E072DE5001FADE3 /* ApiController.swift in Sources */,
+				FB3F5FAB1E072DE5001FADE3 /* Api.swift in Sources */,
 				FBED128F1E0C1E3400EBCAD7 /* LocationManagerOnTheMap.swift in Sources */,
 				FB5381D61E034D17006027A2 /* ConfigurationNetwork.swift in Sources */,
 				FB656FC41E22824D009A9CF9 /* Reachability.swift in Sources */,

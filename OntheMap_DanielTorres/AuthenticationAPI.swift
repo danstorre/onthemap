@@ -30,9 +30,9 @@ class AuthenticationAPI: NSObject {
                     }
                     
                     
-                    StudentInformation.sharedInstance().currentStudentLocation.pin!.user.firstName = firstName!
-                    StudentInformation.sharedInstance().currentStudentLocation.pin!.user.lastName = lastName!
-                    StudentInformation.sharedInstance().currentStudentLocation.uniqueKey = keyAccount
+                    StudentInformation.shared.currentStudentLocation.pin!.user.firstName = firstName!
+                    StudentInformation.shared.currentStudentLocation.pin!.user.lastName = lastName!
+                    StudentInformation.shared.currentStudentLocation.uniqueKey = keyAccount
                     
                 })
                 

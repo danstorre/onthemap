@@ -114,10 +114,10 @@ class InputNewLocationViewController: UIViewController {
         button.isEnabled = false
         
         let locationController = Location()
-        let parseAPI = ParseApiController()
+        let parseAPI = ParseApi()
         
         //verify if the user has a student location in parse (automatic saved in appDelegate )
-        let studentInformationSharedInstance = StudentInformation.sharedInstance()
+        let studentInformationSharedInstance = StudentInformation.shared
         let firsName = studentInformationSharedInstance.currentStudentLocation.pin?.user.lastName
         let lastName = studentInformationSharedInstance.currentStudentLocation.pin?.user.firstName
         let uniqueKey = studentInformationSharedInstance.currentStudentLocation.uniqueKey

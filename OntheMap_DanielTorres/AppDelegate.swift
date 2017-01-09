@@ -13,7 +13,7 @@ import MapKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var networkState : NetworkController = NetworkController()
+    var networkState : Network = Network()
     var locationController: Location = Location()
     
 
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.removeObserver(self, name: Notification.notificationUpdateUserLocation, object: nil)
         NotificationCenter.default.removeObserver(self, name: Notification.notificationRefreshData, object: nil)
         
-        let udacityapi = UdacityApiController()
+        let udacityapi = UdacityApi()
         let authenticationController = AuthenticationAPI()
         
         authenticationController.logOutWith(udacityapi) { (success, deletedSessionID, errorString) in

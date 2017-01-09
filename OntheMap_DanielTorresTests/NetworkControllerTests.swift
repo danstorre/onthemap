@@ -13,8 +13,8 @@ class NetworkControllerTests: XCTestCase {
     
     func test_LoginWithUdacity_ResultFromParseData(){
     
-        let networkController = NetworkController()
-        let udacityApi = UdacityApiController()
+        let networkController = Network()
+        let udacityApi = UdacityApi()
         
         let request = NSMutableURLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
         request.httpMethod = "POST"

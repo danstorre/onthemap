@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UdacityApiController: ApiController, AuthenticationProtocol {
+class UdacityApi: Api, AuthenticationProtocol {
 
     
     
@@ -138,7 +138,7 @@ class UdacityApiController: ApiController, AuthenticationProtocol {
 
 
 // MARK:- Helper methods
-private extension UdacityApiController {
+private extension UdacityApi {
     // Create Request for udacity 
     func createRequestForUdacityWith(request : NSMutableURLRequest, method: ConfigurationNetwork.HttpMethods, and jsonBody : Data?) -> NSMutableURLRequest{
         

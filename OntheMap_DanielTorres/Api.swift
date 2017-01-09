@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ApiController : NSObject {
+class Api : NSObject {
 
-    let networkController = NetworkController()
+    let networkController = Network()
     
 }

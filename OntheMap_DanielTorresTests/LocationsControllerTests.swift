@@ -13,7 +13,7 @@ class LocationsControllerTests: XCTestCase {
 
     func test_GetListOfStudentsLocations_ArrayStudentLocation() {
         
-        let api = ParseApiController()
+        let api = ParseApi()
         let locationController = Location()
         let expectationSuccess = expectation(description: "Success List Student Locations Expectations")
         
@@ -41,7 +41,7 @@ class LocationsControllerTests: XCTestCase {
     
     func test_PostAStudentLocation(){
     
-        let api = ParseApiController()
+        let api = ParseApi()
         let locationController = Location()
         let expectationSuccess = expectation(description: "Success Post Student Locations Expectations")
         

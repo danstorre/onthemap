@@ -27,7 +27,7 @@ class Location: NSObject {
             if success {
                 //If success return list of studentlocations to the completion handler
                 
-                StudentInformation.sharedInstance().lastLocations = locations!
+                StudentInformation.shared.lastLocations = locations!
                 completionHandlerForGettingLocations(true, locations, nil)
             }
             else {
